@@ -15,7 +15,7 @@ function EventPage() {
     }, [year, path]);
 
     return (
-        <div className='bg-black min-h-screen text-white xl:px-[32rem] py-24 px-12'>
+        <div className='bg-black min-h-screen text-white 2xl:px-[32rem] py-24 px-12'>
             <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             <div className='text-center'>
                 <Copyright />

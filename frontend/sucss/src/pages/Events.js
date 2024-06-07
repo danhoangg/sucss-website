@@ -64,7 +64,7 @@ function Events() {
 
 
     return (
-        <div className='bg-black min-h-screen text-white px-[32rem] py-24'>
+        <div className='bg-black min-h-screen text-white 2xl:px-[32rem] px-12 py-24'>
             <p className='text-5xl font-bold pb-6'>Events</p>
             <p className='text-xl py-3'>
                 All events are either for <b>beginners</b> or for more <b>advanced</b> members. We encourage you to come to all sessions regardless of your skill level.
