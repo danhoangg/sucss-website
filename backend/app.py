@@ -33,7 +33,6 @@ def get_events():
 @app.route('/api/get-html/<year>/<path:path>', methods=['POST'])
 def get_html(year, path):
     try:
-        # Check if the JSON data file exists
         if not os.path.exists(JSON_FILE):
             return jsonify({'error': 'Events data file not found'}), 404
         

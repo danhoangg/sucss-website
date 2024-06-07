@@ -13,6 +13,24 @@
         "date": "2024-05-15",
         "year": "23-24",
         "path": "howtotalkpt2",
-        "html": "howtotalkpt2.html"
+        "html": "23-24-howtotalkpt2.html"
+    },
+    {
+        "id": 3,
+        "name":"Christmas Challenge",
+        "isLink": true,
+        "date": "2023-12-13",
+        "year": "23-24",
+        "path": "christmas",
+        "html": "23-24-christmas.html"
+    },
+    {
+        "id": 4,
+        "name":"SUCSS AGM 2023",
+        "isLink": true,
+        "date": "2023-04-26",
+        "year": "22-23",
+        "path": "agm",
+        "html": "22-23-agm.html"
     }
 ]
