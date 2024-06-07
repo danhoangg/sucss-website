@@ -1,0 +1,26 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/frontend/sucss/node_modules
+/frontend/sucss/.pnp
+/frontend/sucss.pnp.js
+
+# testing
+/frontend/sucss/coverage
+
+# production
+/frontend/sucss/build
+
+# python venv
+/backend/sucss-env
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

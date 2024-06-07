@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "name": "Lock Picking - Cancelled",
+        "isLink": false,
+        "date": "2024-05-22",
+        "year": "23-24"
+    },
+    {
+        "id": 2,
+        "name":"WithSecure Guest Talk, Part 2",
+        "isLink": true,
+        "date": "2024-05-15",
+        "year": "23-24",
+        "path": "howtotalkpt2",
+        "html": "howtotalkpt2.html"
+    }
+]
