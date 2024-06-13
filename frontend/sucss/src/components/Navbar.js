@@ -12,7 +12,7 @@ function Navbar() {
         <nav className="bg-black text-white p-4 flex justify-between items-center border-b border-gray-700">
             <div className="flex content-between items-center">
                 <Link to="/" className='flex content-between items-center'>
-                    <img src="sucss-logo.png" alt="SUCSS" className="w-8 h-8" />
+                    <img src="/sucss-logo.png" alt="SUCSS" className="w-8 h-8" />
                     <h1 className="font-bold text-3xl mx-5 text-[#5a67d8]">SUCSS</h1>
                 </Link>
                 <Link to="/about" className="text-white text-lg px-3 hover:text-gray-300">About</Link>

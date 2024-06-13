@@ -3,6 +3,8 @@ import { useParams } from 'react-router-dom';
 
 import Copyright from '../components/Copyright';
 
+import '../custom-styles.css';
+
 function EventPage() {
     const { year, path } = useParams();
     const [htmlContent, setHtmlContent] = useState('');
@@ -15,7 +17,7 @@ function EventPage() {
     }, [year, path]);
 
     return (
-        <div className='bg-black min-h-screen text-white 2xl:px-[32rem] py-24 px-12'>
+        <div className='bg-black min-h-screen text-white 2xl:px-[32rem] py-12 custom-section'>
             <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
             <div className='text-center'>
                 <Copyright />

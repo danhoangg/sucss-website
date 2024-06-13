@@ -1,0 +1,69 @@
+/* Scoped styles.css - Styles only apply within .custom-section */
+
+/* Scoped Body Styles */
+.custom-section {
+    line-height: 1.6; /* Example line-height */
+    color: #333; /* Text color */
+}
+
+/* Scoped Headings */
+.custom-section h1, .custom-section h2, .custom-section h3, .custom-section h4, .custom-section h5, .custom-section h6 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-weight: 800;
+}
+
+.custom-section h1 {
+    font-size: 2.25rem; /* Larger size for h1 */
+}
+
+.custom-section h2 {
+    font-size: 1.75rem; /* Size for h2 */
+    border-bottom: 1px solid #37393d;
+}
+
+/* Scoped Paragraph */
+.custom-section p {
+    margin-top: 0;
+    margin-bottom: 1em;
+}
+
+/* Scoped Links */
+.custom-section a {
+    text-decoration: underline;
+}
+
+.custom-section ul {
+    list-style-type: disc; /* Default bullet points */
+    list-style-position: inside; /* Adjust as needed: inside or outside */
+    padding-left: 20px; /* Provide some space for bullets, adjust as needed */
+}
+
+.custom-section ol {
+    list-style-type: decimal; /* Default numbering */
+    list-style-position: inside; /* Adjust as needed: inside or outside */
+    padding-left: 20px; /* Provide some space for numbers, adjust as needed */
+}
+
+.custom-section li {
+    line-height: 1.6;
+    margin-block: 0.5em;
+}
+
+/* Scoped Images */
+.custom-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Scoped Tables */
+.custom-section table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.custom-section th, .custom-section td {
+    text-align: left;
+    border: 1px solid #ddd;
+    padding: 8px;
+}
