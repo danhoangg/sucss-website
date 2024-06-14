@@ -129,25 +129,25 @@ frontend/sucss/
 │   ├── images 
 │   │   ├── sucss-logo.png
 │   │   └── with-secure-white.png
-|   ├── index.html
-|   └── robots.txt
+│   ├── index.html
+│   └── robots.txt
 ├── src
-|   ├── components  # Reusable sections of the website e.g.
-|   |   ├── Copyright.js
-|   |   └── Navbar.js
-|   ├── functions  # Useful functions                            
-|   |   └── convertDateToAcademicYear.js
-|   ├── pages  # The website pages e.g.
-|   |   ├── Events.js
-|   |   ├── EventPage.js
-|   |   └── HomePage.js 
-|   ├── svgs  # Svgs used, e.g.
-|   |   ├── twitter.svg
-|   |   └── discord.svg
-|   ├── App.js  # Main react js file, contains routing
-|   ├── custom-style.css  # Styling to keep event description pages consistent
-|   ├── index.css  # General styles, only contains tailwind as of now
-|   └── index.js
+│   ├── components  # Reusable sections of the website e.g.
+│   │   ├── Copyright.js
+│   │   └── Navbar.js
+│   ├── functions  # Useful functions                            
+│   │   └── convertDateToAcademicYear.js
+│   ├── pages  # The website pages e.g.
+│   │   ├── Events.js
+│   │   ├── EventPage.js
+│   │   └── HomePage.js 
+│   ├── svgs  # Svgs used, e.g.
+│   │   ├── twitter.svg
+│   │   └── discord.svg
+│   ├── App.js  # Main react js file, contains routing
+│   ├── custom-style.css  # Styling to keep event description pages consistent
+│   ├── index.css  # General styles, only contains tailwind as of now
+│   └── index.js
 ├── package-lock.json
 ├── package.json
 ├── postcss.config.json
