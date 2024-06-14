@@ -5,6 +5,8 @@ import Copyright from "../components/Copyright";
 
 import convertDateToAcademicYear from '../functions/convertDateToAcademicYear';
 
+import '../custom-styles.css';
+
 function determineSemester(date) {
     const dateObject = new Date(date);
     const year = dateObject.getFullYear();
@@ -64,26 +66,25 @@ function Events() {
 
 
     return (
-        <div className='bg-black min-h-screen text-white 2xl:px-[32rem] px-12 py-24'>
-            <p className='text-5xl font-bold pb-6'>Events</p>
-            <p className='text-xl py-3'>
-                All events are either for <b>beginners</b> or for more <b>advanced</b> members. We encourage you to come to all sessions regardless of your skill level.
+        <div className='min-h-screen px-12 py-16 text-white bg-black 2xl:px-96 custom-section'>
+            <h1>Events</h1>
+            <p>
+                All events are either for <strong>beginners</strong> or for more <strong>advanced</strong> members. We encourage you to come to all sessions regardless of your skill level.
             </p>
-            <p className='text-xl py-3'>
-                We store all our flags in our flag tracker at <a href='flags.sucss.org' className='underline'>flags.sucss.org</a>.
+            <p>
+                We store all our flags in our flag tracker at <a href='flags.sucss.org'>flags.sucss.org</a>.
             </p>
             {['Upcoming', 'Past'].map(category => (
                 <div key={category}>
-                    <p className='text-2xl font-bold pt-8 pb-3'>{`${category} Events`}</p>
-                    <hr />
+                    <h2>{`${category} Events`}</h2>
                     {events[category] && Object.entries(events[category]).sort((a, b) => sortSemesters(a[0], b[0])).map(([semester, eventsInSemester]) => (
                         <div key={semester}>
-                            <p className='text-xl font-bold pt-2'>{semester}</p>
-                            <div className='py-4'>
+                            <h3>{semester}</h3>
+                            <div>
                                 {eventsInSemester.map(event => (
-                                    <div key={event.id} className='py-1'>
-                                        <p className='text-lg'>{event.isLink ? (
-                                            <Link to={`/events/${convertDateToAcademicYear(event.date)}/${event.path}`} className='underline'>
+                                    <div key={event.id}>
+                                        <p>{event.isLink ? (
+                                            <Link to={`/events/${convertDateToAcademicYear(event.date)}/${event.path}`}>
                                                 {event.date} - {event.name}
                                             </Link>
                                         ) : (
@@ -98,9 +99,7 @@ function Events() {
                 </div>
             ))}
 
-            <div className='text-center text-gray-300'>
-                <Copyright />
-            </div>
+            <Copyright />
         </div>
 
 

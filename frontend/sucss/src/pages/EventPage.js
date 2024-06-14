@@ -7,7 +7,7 @@ import '../custom-styles.css';
 
 function EventPage() {
     const { year, path } = useParams();
-    const [htmlContent, setHtmlContent] = useState('');
+    const [htmlContent, setHtmlContent] = useState('Loading...');
 
     useEffect(() => {
         fetch(`/api/get-html/${year}/${path}`, { method: 'POST' })
@@ -19,9 +19,7 @@ function EventPage() {
     return (
         <div className='bg-black min-h-screen text-white 2xl:px-[32rem] p-12 custom-section'>
             <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-            <div className='text-center'>
-                <Copyright />
-            </div>
+            <Copyright />
         </div>
     );
 }

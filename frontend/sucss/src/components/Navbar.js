@@ -12,8 +12,8 @@ function Navbar() {
         <nav className="flex items-center justify-between p-4 text-white bg-black border-b border-gray-700">
             <div className="flex items-center justify-between w-full sm:justify-start">
                 <Link to="/" className='flex items-center content-between'>
-                    <img src="/sucss-logo.png" alt="SUCSS" className="w-8 h-8" />
-                    <h1 className="font-bold text-2xl mx-5 text-[#5a67d8] hidden sm:block">SUCSS</h1>
+                    <img src="/images/sucss-logo.png" alt="SUCSS" className="w-8 h-8" />
+                    <h1 className="hidden mx-5 text-2xl font-bold text-sucss-purple sm:block">SUCSS</h1>
                 </Link>
                 <div>
                     <Link to="/about" className="px-3 text-lg text-white hover:text-gray-300">About</Link>
