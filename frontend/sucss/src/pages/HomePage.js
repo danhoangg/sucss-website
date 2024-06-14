@@ -47,7 +47,7 @@ function HomePage() {
             <h3 className='pt-12 pb-10 text-2xl font-bold'>
                 Sponsored By
             </h3>
-            <a className='flex justify-center'>
+            <a href='/about/with-secure' className='flex justify-center'>
                 <img className='w-64' alt='with secure logo' src='/images/with-secure-white.png' />
             </a>
 
