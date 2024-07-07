@@ -5,23 +5,23 @@ Aims:
 - Update events without requiring redeployment
 - Open to any more suggestions
 
-**DO NOT USE FOR PRODUCTION -** Website is still in development
-
 ## 👾 Technologies used
 - React
 - Tailwind
 - Flask
 
 ## 💻 Usage 
-Clone the project and install depedencies
+
+Clone the project and install depedencies (flask-cors only for development)
 ```bash
 git clone https://github.com/danhoangg/sucss-website.git
 cd frontend/sucss
 npm install
 cd ../../backend
-pip install flask, flask-cors
+pip install flask, flask-cors, waitress
 ```
-Start the flask server (may want to create python env)
+### Development
+Start the flask server (run app with debug=True with flask)
 ```bash
 cd backend
 python app.py
@@ -31,7 +31,17 @@ Start the react development server
 cd frontend/sucss
 npm run start
 ```
-**NOTE -** In production you will only need to run the flask server
+### Production
+Build the react app
+```bash
+cd frontend/sucss
+npm run build
+```
+Start the flask server served with waitress
+```bash
+cd backend
+python app.py
+```
 
 ## ✏️ Adding, modifying and deleting events
 **Liable to change**\
