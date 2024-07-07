@@ -9,7 +9,7 @@ import { ReactComponent as TwitterIcon } from '../svgs/twitter.svg';
 
 function Navbar() {
     return (
-        <nav className="flex items-center justify-between p-4 text-white bg-black border-b border-gray-700">
+        <nav className="flex items-center justify-between p-4 text-white bg-black border-t-2 border-b border-gray-700 border-t-sucss-purple">
             <div className="flex items-center justify-between w-full sm:justify-start">
                 <Link to="/" className='flex items-center content-between'>
                     <img src="/images/sucss-logo.png" alt="SUCSS" className="w-8 h-8" />
