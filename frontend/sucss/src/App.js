@@ -6,6 +6,7 @@ import Events from "./pages/Events";
 import EventPage from "./pages/EventPage";
 import Docs from "./pages/Docs";
 import DocPage from "./pages/DocPage";
+import AboutPage from "./pages/AboutPage";
 import Navbar from "./components/Navbar"; 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Route path="/events/:year/:path" element={<EventPage />} />
           <Route path="/docs" element={<Docs />} />
           <Route path="/docs/:doc" element={<DocPage />} />
+          <Route path="/about" element={<AboutPage />} />
         </Routes>
       </div>
     </Router>
