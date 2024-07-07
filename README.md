@@ -118,9 +118,13 @@ Currently the only way of modifying/adding/deleting events is through the json, 
 
 ```
 backend/
-├── html  # Holds all the event description htmls
-│   ├── event-description.html
-│   └── event-description2.html
+├── html  # Holds all the html files
+│   ├── events  # All event htmls
+│   │   ├── event-description.html
+│   │   └── event-description2.html
+│   └── docs  # all docs htmls
+│       ├── docs1.html
+│       └── docs2.html
 ├── app.py
 └── events.json
 
@@ -156,12 +160,13 @@ frontend/sucss/
 
 ## 🗒️ TODO list
 In order of priority:
-1. Finish the static parts of the website, e.g. about pages
-2. Make custom 404 page
-3. Make adding, removing and editing events more user friendly
+1. Make adding, removing and editing events more user friendly
 
 ## 😎 Completed
 - Home page
 - Events page
 - Event description pages
 - Events and event descriptions are dynamically generated without need for redeployment
+- About page
+- Docs page
+- Scraped all the events from the other website onto this one
