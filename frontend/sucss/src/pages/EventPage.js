@@ -11,7 +11,13 @@ function EventPage() {
 
     useEffect(() => {
         fetch(`/api/get-html/${year}/${path}`, { method: 'POST' })
-            .then(response => response.text())
+            .then(response => {
+                if (response.status !== 200) {
+                    window.location.href = '/events';
+                    return "Event not found. Redirecting...";
+                }
+                return response.text();
+            })
             .then(data => setHtmlContent(data))
             .catch(error => console.error(error));
     }, [year, path]);
