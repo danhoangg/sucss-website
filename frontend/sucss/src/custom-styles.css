@@ -63,3 +63,35 @@
     border: 1px solid #ddd;
     padding: 8px;
 }
+
+.custom-section code {
+    background-color: #1b1d1e;
+    padding: 4px;
+    border: 1px solid #37393d;
+    border-radius: 3px;
+    font-size: 15px;
+}
+
+.custom-section span,
+.custom-section button {
+  padding-left: 1.5rem; 
+  padding-right: 1.5rem; 
+  padding-top: 0.5rem; 
+  padding-bottom: 0.5rem; 
+  font-size: 1.125rem; 
+  font-weight: bold; 
+  transition: all 0.3s; 
+  border: 1px solid #4b5563; 
+  border-radius: 0.75rem; 
+  color: #5a67d8; 
+  cursor: pointer;
+}
+
+.custom-section span:hover,
+.custom-section button:hover {
+  background-color: #5a67d8; 
+  color: black; 
+  box-shadow: 0 4px 6px -1px rgba(90, 103, 216, 0.4), 0 2px 4px -1px rgba(90, 103, 216, 0.4); 
+}
+
+  
