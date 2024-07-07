@@ -7,8 +7,7 @@ EVENTS_FOLDER = 'html/events'
 DOCS_FOLDER = 'html/docs'
 JSON_FILE = 'events.json'
 
-app = Flask(__name__)
-CORS(app)
+app = Flask(__name__, static_folder='../frontend/sucss/build', static_url_path='/')
 
 def date_to_academic_year(date):
     date_object = datetime.strptime(date, "%Y-%m-%d")
@@ -19,6 +18,23 @@ def date_to_academic_year(date):
     else:  
         return f"{year % 100:02d}-{(year+1) % 100:02d}"
 
+@app.route('/')
+def serve():
+    return send_from_directory(app.static_folder, 'index.html')
+
+@app.route('/<path:path>')
+def serve_static_files(path):
+    if path.startswith('api/'):
+        return jsonify({'error': 'API route not found'}), 404
+    else:
+        if os.path.exists(os.path.join(app.static_folder, path)):
+            return send_from_directory(app.static_folder, path)
+        else:
+            return send_from_directory(app.static_folder, 'index.html')
+        
+@app.errorhandler(404)   
+def not_found(e):   
+  return send_from_directory(app.static_folder, 'index.html')
 
 @app.route('/api/events', methods=['POST'])
 def get_events():
@@ -74,4 +90,6 @@ def get_docs(docs):
         return jsonify({'error': f'An error occurred: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    from waitress import serve
+    serve(app, host="0.0.0.0", port=8080)
+    #app.run(debug=True)
