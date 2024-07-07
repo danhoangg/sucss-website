@@ -1,3 +1,18 @@
+@media screen and (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #000;
+        --accent-color: #5a67d8;
+        --border-color: #37393d;
+        --text-color: #f2f2f2;
+        --inline-code-background-color: #1b1d1e;
+        --code-block-background-color: #101112;
+        --code-block-text-color: #c3cee3;
+        --table-border-color: #ddd;
+        --table-alternate-row-background-color: #0f0f0f;
+        --light-color: #f2f2f2;
+    }
+}
+
 .custom-section {
     line-height: 1.6; 
     color: #333;
@@ -72,6 +87,21 @@
     font-size: 15px;
 }
 
+.custom-section pre {
+    background-color: #101112;
+    color: #c3cee3;
+    border-radius: 6px;
+    padding: 12px 16px;
+    margin-bottom: 8px;
+    overflow-x: scroll;
+}
+
+.custom-section pre>code {
+    background-color: #101112;
+    padding: 0;
+    border: 0;
+}
+
 .custom-section span,
 .custom-section button {
   padding-left: 1.5rem; 
@@ -92,6 +122,35 @@
   background-color: #5a67d8; 
   color: black; 
   box-shadow: 0 4px 6px -1px rgba(90, 103, 216, 0.4), 0 2px 4px -1px rgba(90, 103, 216, 0.4); 
+}
+
+.custom-section table {
+    width: 100%;
+    overflow: auto;
+    display: block;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+.custom-section table tr {
+    border-top: 1px solid var(--border-color);
+    background-color: var(--background-color);
+}
+
+.custom-section table th, .custom-section table td {
+    border: 1px solid var(--border-color);
+    padding: 8px;
+    text-align: left;
+}
+
+.custom-section td>code {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+}
+
+.custom-section table tr:nth-child(2n) {
+    background-color: var(--table-alternate-row-background-color);
 }
 
   

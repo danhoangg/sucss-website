@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import Events from "./pages/Events";
 import EventPage from "./pages/EventPage";
+import Docs from "./pages/Docs";
+import DocPage from "./pages/DocPage";
 import Navbar from "./components/Navbar"; 
 
 function App() {
@@ -15,6 +17,8 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/events" element={<Events />} />
           <Route path="/events/:year/:path" element={<EventPage />} />
+          <Route path="/docs" element={<Docs />} />
+          <Route path="/docs/:doc" element={<DocPage />} />
         </Routes>
       </div>
     </Router>

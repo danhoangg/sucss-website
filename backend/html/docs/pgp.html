@@ -1,0 +1,103 @@
+<main><section class="utils_articlePage__sM9Xw"><h1>PGP</h1>
+    <p>The following guide shows you how to setup PGP encryption on your computer in preparation for the GPG Keyparty. Valid at: Nov 2017.</p>
+    <p>If you're interested in what PGP is and how it works, have a look at <a href="http://www.bitcoinnotbombs.com/beginners-guide-to-pgp/">this article</a>.</p>
+    <p>To use PGP keys GnuPG is required to be installed on your computer.</p>
+    <h2>Windows</h2>
+    <h3>Prerequisites</h3>
+    <p>You can install GnuPG on Windows using <a href="http://gpg4win.org/index.html">Gpg4win</a>.</p>
+    <h3>Generating a Key</h3>
+    <p>When generating a passphrase, make sure it is a good one because it will be the only defence if your key is compromised. As your key will be the thing which keeps all your communications safe, this is in your best interest.</p>
+    <ul>
+    <li>Open up the Kleopatra application which would have been installed from Gpg4win</li>
+    <li>From the Menu Bar, go to File -&gt; New Certificate</li>
+    <li>Within the new window that pops up select "Create a personal OpenPGP key pair"</li>
+    <li>Enter in your full name and email into the corresponding input boxes</li>
+    <li>Click "Next"</li>
+    <li>Click "Create Key"</li>
+    <li>You will be asked to enter a passphrase. This should be a <strong>strong</strong> password. It will pop up issues it finds in your password</li>
+    <li>Your computer will now generate your key pair and will give you a confirmation on success.</li>
+    </ul>
+    <p>Congratulations! You have successfully created a PGP key pair.</p>
+    <h3>Adding another UID</h3>
+    <p>UIDs are unique identifiers within a key which alias your main key with other values, such as if you have multiple email addresses. Each UID consists of a name, email and optionally a comment. This is useful for having various emails associated with a single key pair.</p>
+    <ul>
+    <li>Open up the Kleopatra application</li>
+    <li>Select your key</li>
+    <li>Right click and select "Add User-ID"</li>
+    <li>Provide the details you would like for your <strong>new</strong> UID (name, email and optionally comment)</li>
+    <li>Enter your passphrase to unlock your key to add the changes</li>
+    </ul>
+    <h3>Exporting Public Key</h3>
+    <ul>
+    <li>Open up the Kleopatra application</li>
+    <li>Select the key you wish to export</li>
+    <li>Click "Export Certificates" (shortcut Ctrl + e)</li>
+    <li>Save file</li>
+    </ul>
+    <h3>Importing Public Keys</h3>
+    <ul>
+    <li>Open up the Kleopatra application</li>
+    <li>Click "Import Certificates" (shortcut Ctrl + i)</li>
+    <li>Select the file containing the public key you wish to import</li>
+    </ul>
+    <h2>Linux</h2>
+    <h3>Prerequisites</h3>
+    <p>GnuPG should already be installed on your system, this can be checked by typing in <code>gpg --version</code> from within a terminal. If not already installed, it can be installed using your systems package manager.</p>
+    <h3>Generating a Key</h3>
+    <p>When generating a passphrase, make sure it is a good one because it will be the only defence if your key is compromised. As your key will be the thing which keeps all your communications safe, this is in your best interest.</p>
+    <ul>
+    <li>Open up a terminal.</li>
+    <li>Enter in <code>gpg --gen-key</code></li>
+    <li>Keep the default selection of the kind of key (RSA and RSA)</li>
+    <li>Keep the default size of the key (2048)</li>
+    <li>Choose an expiry date</li>
+    <li>Confirm this is correct</li>
+    <li>Enter in your full name</li>
+    <li>Enter in your email address</li>
+    <li>The comment is optional and can be kept blank if desired</li>
+    <li>Double check details and progress by entering "O" (for Okay)</li>
+    <li>Enter in a passphrase. This should be a <strong>strong</strong> password.</li>
+    <li>Your computer will now generate your key pair</li>
+    </ul>
+    <h3>Adding another UID</h3>
+    <p>UIDs are unique identifiers within a key which alias your main key with other values, such as if you have multiple email addresses. Each UID consists of a name, email and optionally a comment. This is useful for having various emails associated with a single key pair.</p>
+    <ul>
+    <li>Open up a terminal</li>
+    <li>Enter in <code>gpg --edit-key EMAIL</code> replacing EMAIL with an email address associated with your key</li>
+    <li>Enter in <code>adduid</code> within the new prompt</li>
+    <li>Provide the details you would like for your <strong>new</strong> UID (name, email and optionally comment)</li>
+    <li>Confirm your choice</li>
+    <li>Enter your passphrase to unlock your key to add the changes</li>
+    <li>Enter in <code>save</code> to save your changes and exit</li>
+    </ul>
+    <h3>Exporting Public Key</h3>
+    <ul>
+    <li>Open up a terminal</li>
+    <li>Enter in <code>gpg --output public_key.asc --armor --export EMAIL</code> replacing EMAIL with an email address associated with your key</li>
+    <li>Your public key is now within the public_key.asc file</li>
+    </ul>
+    <h3>Importing Public Keys</h3>
+    <ul>
+    <li>Open up a terminal</li>
+    <li>Enter in <code>gpg --import FILE_NAME</code> where FILE_NAME is the file containing the public key you wish to import</li>
+    </ul>
+    <h2>macOS</h2>
+    <h3>Prerequisites</h3>
+    <p>You will need to download the GPG tools for Mac. There are many to choose from, like <a href="https://gpgtools.org">GPG Suite</a>.</p>
+    <h3>Generating a Key</h3>
+    <p>When generating a passphrase, make sure it is a good one because it will be the only defence if your key is compromised. As your key will be the thing which keeps all your communications safe, this is in your best interest.</p>
+    <p>After installing, the GPG Keychain Manager will automatically ask you to generate a PGP key pair.</p>
+    <p>Congratulations! You have successfully created a PGP key pair.</p>
+    <h3>Adding another UID</h3>
+    <p>UIDs are unique identifiers within a key which alias your main key with other values, such as if you have multiple email addresses. Each UID consists of a name, email and optionally a comment. This is useful for having various emails associated with a single key pair.</p>
+    <ul>
+    <li>Click on your key in the GPG Keychain Manager</li>
+    <li>Click 'Details' in the menu bar</li>
+    <li>Select the User IDs tab</li>
+    <li>Click the + symbol to add a new identity to your key</li>
+    </ul>
+    <h3>Exporting Public Key</h3>
+    <p>Click 'Export' in the menu bar in GPG Keychain. Alternatively, right click on your key and select <em>copy</em> to copy the public key to your clipboard.</p>
+    <h3>Import Public Keys</h3>
+    <p>Click 'Import' in the menu bar in GPG Keychain</p>
+    </section></main>

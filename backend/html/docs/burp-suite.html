@@ -1,0 +1,25 @@
+<main><section class="utils_articlePage__sM9Xw"><h1>Burp Suite</h1>
+    <p>Go to <a href="https://portswigger.net/burp/communitydownload">the Burp Suite website</a>.
+    Download and run the executable.</p>
+    <p>Burp Suite is pre-installed in Kali images.</p>
+    <h2>Running Burp Suite</h2>
+    <ul>
+    <li>Run the installed program.</li>
+    <li>Select "Temporary Project".</li>
+    <li>Select "Use Burp defaults"</li>
+    <li>Switch to the "Proxy" tab</li>
+    <li>Make sure the "Intercept is on" button is selected</li>
+    </ul>
+    <h2>Additional Setup</h2>
+    <p>To intercept messages from the server to the client (to alter cookies) switch to the options tab and select the "Intercept responses" tickbox under "Intercept Server Responses".</p>
+    <p>Burp Suite by default intercepts HTTPS requests as well as HTTP, this results in invalid certificate warnings. To avoid intercepting HTTPS traffic select the "Options" tab under "Proxy". Under "SSL Pass Through" add an entry with host set to ".*" and port set to "443".</p>
+    <h2>Setting up FoxyProxy in Firefox</h2>
+    <ul>
+    <li>Go to <a href="https://addons.mozilla.org/en-US/firefox/addon/foxyproxy-standard/">the Firefox Add-On store</a> and select "Add to Firefox", ignore the new tab that is opened.</li>
+    <li>Select the crossed out fox icon on the user bar and select "Options".</li>
+    <li>Select "Default" and set "Proxy Type" to HTTP.</li>
+    <li>Set IP address to 127.0.0.1 and Port to 8080, leave username and password blank.</li>
+    <li>Close the options tab and select the fox icon and select "Use proxy Default for all URLs".</li>
+    </ul>
+    <p>All traffic will now be routed through burpsuite, to disable traffic being sent through Burp Suite select the fox icon and select "Turn off FoxyProxy".</p>
+    </section></main>

@@ -1,0 +1,15 @@
+<main><section class="utils_articlePage__sM9Xw"><h1>DNS</h1>
+    <p>All queries can be appended with <code>@NAMESERVER</code> where <code>NAMESERVER</code> is the DNS server you wish to interrogate.</p>
+    <h2>DNS Forward Lookup</h2>
+    <p><code>dig example.com</code></p>
+    <h2>DNS Reverse Lookup</h2>
+    <p><code>dig -x example.com</code></p>
+    <h2>DNS Specific Record Lookup</h2>
+    <p><code>dig TYPE example.com</code></p>
+    <p>Replace <code>TYPE</code> with the type of record that you want; for example, <code>A</code>, <code>MX</code>, or <code>TXT</code>.</p>
+    <h2>DNS Zone Transfer</h2>
+    <p>Very useful when trying to enumerate hosts on a domain. Usually disabled but very handy if enabled when pentesting.</p>
+    <p><code>dig axfr example.com</code></p>
+    <h2>Whois</h2>
+    <p><code>whois example.com</code></p>
+    </section></main>

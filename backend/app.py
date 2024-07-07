@@ -3,7 +3,8 @@ from flask_cors import CORS
 import json
 import os, datetime
 
-HTML_FOLDER = 'html'
+EVENTS_FOLDER = 'html/events'
+DOCS_FOLDER = 'html/docs'
 JSON_FILE = 'events.json'
 
 app = Flask(__name__)
@@ -30,7 +31,7 @@ def get_events():
     except json.JSONDecodeError:
         return jsonify({"error": "Events file is not valid JSON"}), 500
 
-@app.route('/api/get-html/<year>/<path:path>', methods=['POST'])
+@app.route('/api/get-event/<year>/<path:path>', methods=['POST'])
 def get_html(year, path):
     try:
         if not os.path.exists(JSON_FILE):
@@ -46,15 +47,29 @@ def get_html(year, path):
         if 'html' not in event:
             return jsonify({'error': 'No HTML content available for this event'}), 404
 
-        html_file_path = os.path.join(HTML_FOLDER, event['html'])
+        html_file_path = os.path.join(EVENTS_FOLDER, event['html'])
         
         if not os.path.exists(html_file_path):
             return jsonify({'error': 'HTML file not found'}), 404
         
-        return send_from_directory(HTML_FOLDER, event['html'])
+        return send_from_directory(EVENTS_FOLDER, event['html'])
     
     except json.JSONDecodeError:
         return jsonify({'error': 'Error decoding JSON'}), 500
+    except Exception as e:
+        return jsonify({'error': f'An error occurred: {str(e)}'}), 500
+
+@app.route('/api/get-docs/<docs>', methods=['POST'])
+def get_docs(docs):
+    docs = f"{docs}.html"
+    try:
+        doc_file_path = os.path.join(DOCS_FOLDER, docs)
+        
+        if not os.path.exists(doc_file_path):
+            return jsonify({'error': 'Document not found'}), 404
+        
+        return send_from_directory(DOCS_FOLDER, docs)
+    
     except Exception as e:
         return jsonify({'error': f'An error occurred: {str(e)}'}), 500
 

@@ -5,22 +5,22 @@ import Copyright from '../components/Copyright';
 
 import '../custom-styles.css';
 
-function EventPage() {
-    const { year, path } = useParams();
+function DocPage() {
+    const { doc } = useParams();
     const [htmlContent, setHtmlContent] = useState('Loading...');
 
     useEffect(() => {
-        fetch(`/api/get-event/${year}/${path}`, { method: 'POST' })
+        fetch(`/api/get-docs/${doc}`, { method: 'POST' })
             .then(response => {
                 if (response.status !== 200) {
-                    window.location.href = '/events';
-                    return "Event not found. Redirecting...";
+                    window.location.href = '/docs';
+                    return "Documents not found. Redirecting...";
                 }
                 return response.text();
             })
             .then(data => setHtmlContent(data))
             .catch(error => console.error(error));
-    }, [year, path]);
+    }, [doc]);
 
     return (
         <div className='bg-black min-h-screen text-white 2xl:px-[32rem] p-12 custom-section'>
@@ -30,4 +30,4 @@ function EventPage() {
     );
 }
 
-export default EventPage;
+export default DocPage;

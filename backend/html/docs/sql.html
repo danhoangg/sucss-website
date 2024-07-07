@@ -1,0 +1,44 @@
+<main><section class="utils_articlePage__sM9Xw"><h1>SQL</h1>
+    <p>SQL is a programming language commonly used for administering databases. We will look at it from an SQL injection point of view in common web databases such as MySQL. Hence, it's good to know some basic commands and what they do.</p>
+    <table>
+    <thead>
+    <tr>
+    <th>Command</th>
+    <th>Explanation</th>
+    <th>Example</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td><code>CREATE</code></td>
+    <td>Use with terms 'database' or 'table' to make something.</td>
+    <td><code>CREATE DATABASE testing;</code></td>
+    </tr>
+    <tr>
+    <td><code>SELECT</code></td>
+    <td>Allows you to select data from a table.</td>
+    <td><code>SELECT * from TESTING WHERE id=1;</code></td>
+    </tr>
+    <tr>
+    <td><code>UPDATE</code></td>
+    <td>Update a row already in the table.</td>
+    <td><code>UPDATE testing SET columnname='data' WHERE id=1;</code></td>
+    </tr>
+    <tr>
+    <td><code>INSERT</code></td>
+    <td>Add a new row to the table.</td>
+    <td><code>INSERT INTO testing (column1,column2,column3) VALUES ('data1','data2','data3');</code></td>
+    </tr>
+    <tr>
+    <td><code>DROP</code></td>
+    <td>Remove anything in MySQL.</td>
+    <td><code>DROP testing;</code></td>
+    </tr>
+    <tr>
+    <td><code>GRANT</code></td>
+    <td>Make users and grant permissions in one.</td>
+    <td><code>GRANT ALL on testing.* to 'cooluser'@localhost IDENTIFIED BY 'mysuperawesomepassword';</code></td>
+    </tr>
+    </tbody>
+    </table>
+    </section></main>
