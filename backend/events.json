@@ -1,14 +1,14 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "name": "Lock Picking - Cancelled",
         "isLink": false,
         "date": "2024-05-22",
         "year": "23-24"
     },
     {
-        "id": 2,
-        "name":"WithSecure Guest Talk, Part 2",
+        "id": 1,
+        "name": "WithSecure Guest Talk, Part 2",
         "isLink": true,
         "date": "2024-05-15",
         "year": "23-24",
@@ -16,8 +16,114 @@
         "html": "23-24-howtotalkpt2.html"
     },
     {
+        "id": 2,
+        "name": "SUCSS AGM 2024",
+        "isLink": true,
+        "date": "2024-05-08",
+        "year": "23-24",
+        "path": "agm24",
+        "html": "23-24-agm24.html"
+    },
+    {
         "id": 3,
-        "name":"Christmas Challenge",
+        "name": "WithSecure Guest Talk",
+        "isLink": true,
+        "date": "2024-05-01",
+        "year": "23-24",
+        "path": "howtotalk",
+        "html": "23-24-howtotalk.html"
+    },
+    {
+        "id": 4,
+        "name": "Netcraft Guest Talk: Catching Cybercriminals Red-Handed",
+        "isLink": true,
+        "date": "2024-04-24",
+        "year": "23-24",
+        "path": "netcrafttalk",
+        "html": "23-24-netcrafttalk.html"
+    },
+    {
+        "id": 5,
+        "name": "Member-Made CTFs Reverse Escape Room",
+        "isLink": true,
+        "date": "2024-03-20",
+        "year": "23-24",
+        "path": "MMCTF",
+        "html": "23-24-MMCTF.html"
+    },
+    {
+        "id": 6,
+        "name": "Metasploit Workshop",
+        "isLink": true,
+        "date": "2024-03-13",
+        "year": "23-24",
+        "path": "metasploit",
+        "html": "23-24-metasploit.html"
+    },
+    {
+        "id": 7,
+        "name": "MMCTF Workshop",
+        "isLink": true,
+        "date": "2024-03-06",
+        "year": "23-24",
+        "path": "mmctfworkshop",
+        "html": "23-24-mmctfworkshop.html"
+    },
+    {
+        "id": 8,
+        "name": "GSM Workshop - Cancelled",
+        "isLink": true,
+        "date": "2024-02-28",
+        "year": "23-24",
+        "path": "gsm",
+        "html": "23-24-gsm.html"
+    },
+    {
+        "id": 9,
+        "name": "Introduction to Reverse Engineering and Binary Exploitation",
+        "isLink": true,
+        "date": "2024-02-28",
+        "year": "23-24",
+        "path": "reverseengineering",
+        "html": "23-24-reverseengineering.html"
+    },
+    {
+        "id": 10,
+        "name": "No Session",
+        "isLink": false,
+        "date": "2024-02-21",
+        "year": "23-24"
+    },
+    {
+        "id": 11,
+        "name": "Kali Linux Introduction",
+        "isLink": true,
+        "date": "2024-02-14",
+        "year": "23-24",
+        "path": "kaliintro",
+        "html": "23-24-kaliintro.html"
+    },
+    {
+        "id": 12,
+        "name": "Digital Forensics",
+        "isLink": true,
+        "date": "2024-02-07",
+        "year": "23-24",
+        "path": "digitalforensics",
+        "html": "23-24-digitalforensics.html"
+    },
+    {
+        "id": 13,
+        "name": "Web 102 Rerun",
+        "isLink": true,
+        "date": "2024-01-31",
+        "year": "23-24",
+        "path": "web102rerun",
+        "html": "23-24-web102rerun.html"
+    },
+    {
+        "id": 14,
+        "name": "Christmas Challenge",
         "isLink": true,
         "date": "2023-12-13",
         "year": "23-24",
@@ -25,12 +131,938 @@
         "html": "23-24-christmas.html"
     },
     {
-        "id": 4,
-        "name":"SUCSS AGM 2023",
+        "id": 15,
+        "name": "RFID Hacking",
+        "isLink": true,
+        "date": "2023-12-06",
+        "year": "23-24",
+        "path": "idcard",
+        "html": "23-24-idcard.html"
+    },
+    {
+        "id": 16,
+        "name": "WithSecure Guest Talk",
+        "isLink": true,
+        "date": "2023-11-29",
+        "year": "23-24",
+        "path": "withsecure",
+        "html": "23-24-withsecure.html"
+    },
+    {
+        "id": 17,
+        "name": "Web 102",
+        "isLink": true,
+        "date": "2023-11-22",
+        "year": "23-24",
+        "path": "web102",
+        "html": "23-24-web102.html"
+    },
+    {
+        "id": 18,
+        "name": "Networking 101",
+        "isLink": true,
+        "date": "2023-11-15",
+        "year": "23-24",
+        "path": "networking101",
+        "html": "23-24-networking101.html"
+    },
+    {
+        "id": 19,
+        "name": "Netcraft Dark Markets Workshop",
+        "isLink": true,
+        "date": "2023-11-08",
+        "year": "23-24",
+        "path": "netcraftworkshop",
+        "html": "23-24-netcraftworkshop.html"
+    },
+    {
+        "id": 20,
+        "name": "November 2023 EGM and Member Talks",
+        "isLink": true,
+        "date": "2023-11-01",
+        "year": "23-24",
+        "path": "egmandtalks",
+        "html": "23-24-egmandtalks.html"
+    },
+    {
+        "id": 21,
+        "name": "Steganography",
+        "isLink": true,
+        "date": "2023-10-25",
+        "year": "23-24",
+        "path": "stego",
+        "html": "23-24-stego.html"
+    },
+    {
+        "id": 22,
+        "name": "GPG/Keysigning",
+        "isLink": true,
+        "date": "2023-10-18",
+        "year": "23-24",
+        "path": "GPG",
+        "html": "23-24-GPG.html"
+    },
+    {
+        "id": 23,
+        "name": "Open Source Intelligence",
+        "isLink": true,
+        "date": "2023-10-11",
+        "year": "23-24",
+        "path": "osint",
+        "html": "23-24-osint.html"
+    },
+    {
+        "id": 24,
+        "name": "Web 101",
+        "isLink": true,
+        "date": "2023-10-04",
+        "year": "23-24",
+        "path": "web101",
+        "html": "23-24-web101.html"
+    },
+    {
+        "id": 25,
+        "name": "10th Anniversary Celebration",
+        "isLink": true,
+        "date": "2023-05-14",
+        "year": "22-23",
+        "path": "anniversary",
+        "html": "22-23-anniversary.html"
+    },
+    {
+        "id": 26,
+        "name": "SUCSS AGM 2023",
         "isLink": true,
         "date": "2023-04-26",
         "year": "22-23",
         "path": "agm",
         "html": "22-23-agm.html"
+    },
+    {
+        "id": 27,
+        "name": "RFID Hacking",
+        "isLink": true,
+        "date": "2023-03-22",
+        "year": "22-23",
+        "path": "idcard",
+        "html": "22-23-idcard.html"
+    },
+    {
+        "id": 28,
+        "name": "Lock Picking",
+        "isLink": false,
+        "date": "2023-03-15",
+        "year": "22-23"
+    },
+    {
+        "id": 29,
+        "name": "Secure Hardware Design",
+        "isLink": true,
+        "date": "2023-03-08",
+        "year": "22-23",
+        "path": "securehardware",
+        "html": "22-23-securehardware.html"
+    },
+    {
+        "id": 30,
+        "name": "'The Criminal World of Initial Access Marketplaces' (Netcraft Guest Talk)",
+        "isLink": true,
+        "date": "2023-03-01",
+        "year": "22-23",
+        "path": "netcraft",
+        "html": "22-23-netcraft.html"
+    },
+    {
+        "id": 31,
+        "name": "Cryptography",
+        "isLink": true,
+        "date": "2023-02-15",
+        "year": "22-23",
+        "path": "cryptography",
+        "html": "22-23-cryptography.html"
+    },
+    {
+        "id": 32,
+        "name": "Hardware Hacking",
+        "isLink": true,
+        "date": "2023-02-08",
+        "year": "22-23",
+        "path": "hardwarehacking",
+        "html": "22-23-hardwarehacking.html"
+    },
+    {
+        "id": 33,
+        "name": "'An Introduction to Binary Exploitation' (Interrupt Labs Guest Talk)",
+        "isLink": true,
+        "date": "2023-02-01",
+        "year": "22-23",
+        "path": "interruptlabs",
+        "html": "22-23-interruptlabs.html"
+    },
+    {
+        "id": 34,
+        "name": "Member-Made CTFs December 2022",
+        "isLink": true,
+        "date": "2022-12-07",
+        "year": "22-23",
+        "path": "mmctf",
+        "html": "22-23-mmctf.html"
+    },
+    {
+        "id": 35,
+        "name": "'Sniffing keyboards (Turns out some of them stink)' (WithSecure Guest Talk)",
+        "isLink": true,
+        "date": "2022-11-30",
+        "year": "22-23",
+        "path": "withsecure",
+        "html": "22-23-withsecure.html"
+    },
+    {
+        "id": 36,
+        "name": "Web 102",
+        "isLink": true,
+        "date": "2022-11-23",
+        "year": "22-23",
+        "path": "web102",
+        "html": "22-23-web102.html"
+    },
+    {
+        "id": 37,
+        "name": "Steganography",
+        "isLink": true,
+        "date": "2022-11-16",
+        "year": "22-23",
+        "path": "stego",
+        "html": "22-23-stego.html"
+    },
+    {
+        "id": 38,
+        "name": "Networking 101",
+        "isLink": true,
+        "date": "2022-11-09",
+        "year": "22-23",
+        "path": "networking101",
+        "html": "22-23-networking101.html"
+    },
+    {
+        "id": 39,
+        "name": "November 2022 EGM and Member Talks",
+        "isLink": true,
+        "date": "2022-11-02",
+        "year": "22-23",
+        "path": "egm",
+        "html": "22-23-egm.html"
+    },
+    {
+        "id": 40,
+        "name": "'To Trusted Hardware (and back again?)' (Arm Guest Talk)",
+        "isLink": true,
+        "date": "2022-10-26",
+        "year": "22-23",
+        "path": "arm",
+        "html": "22-23-arm.html"
+    },
+    {
+        "id": 41,
+        "name": "Hacking 101",
+        "isLink": true,
+        "date": "2022-10-19",
+        "year": "22-23",
+        "path": "hacking101",
+        "html": "22-23-hacking101.html"
+    },
+    {
+        "id": 42,
+        "name": "Open Source Intelligence",
+        "isLink": true,
+        "date": "2022-10-12",
+        "year": "22-23",
+        "path": "osint",
+        "html": "22-23-osint.html"
+    },
+    {
+        "id": 43,
+        "name": "Web 101",
+        "isLink": true,
+        "date": "2022-10-05",
+        "year": "22-23",
+        "path": "web101",
+        "html": "22-23-web101.html"
+    },
+    {
+        "id": 44,
+        "name": "SUCSS AGM 2022",
+        "isLink": true,
+        "date": "2022-04-27",
+        "year": "21-22",
+        "path": "agm22",
+        "html": "21-22-agm22.html"
+    },
+    {
+        "id": 45,
+        "name": "SUCSS Member-Made CTFs 2022",
+        "isLink": true,
+        "date": "2022-03-23",
+        "year": "21-22",
+        "path": "ctfbuilding",
+        "html": "21-22-ctfbuilding.html"
+    },
+    {
+        "id": 46,
+        "name": "'Web Shells: The Criminal's Control Panel' (Netcraft Guest Session)",
+        "isLink": true,
+        "date": "2022-03-16",
+        "year": "21-22",
+        "path": "guestnetcraftmarch2022",
+        "html": "21-22-guestnetcraftmarch2022.html"
+    },
+    {
+        "id": 47,
+        "name": "GSM Hacking (ECS Guest Session)",
+        "isLink": true,
+        "date": "2022-03-09",
+        "year": "21-22",
+        "path": "gsm",
+        "html": "21-22-gsm.html"
+    },
+    {
+        "id": 48,
+        "name": "Member-Made CTFs Introduction",
+        "isLink": true,
+        "date": "2022-03-02",
+        "year": "21-22",
+        "path": "mmctfsintro",
+        "html": "21-22-mmctfsintro.html"
+    },
+    {
+        "id": 49,
+        "name": "Mobile Pentesting (F-Secure Guest Session)",
+        "isLink": true,
+        "date": "2022-02-23",
+        "year": "21-22",
+        "path": "mobilepentesting",
+        "html": "21-22-mobilepentesting.html"
+    },
+    {
+        "id": 50,
+        "name": "macOS Security",
+        "isLink": true,
+        "date": "2022-02-09",
+        "year": "21-22",
+        "path": "macos",
+        "html": "21-22-macos.html"
+    },
+    {
+        "id": 51,
+        "name": "Introduction to Reverse Engineering",
+        "isLink": true,
+        "date": "2022-02-02",
+        "year": "21-22",
+        "path": "reverseengineering",
+        "html": "21-22-reverseengineering.html"
+    },
+    {
+        "id": 52,
+        "name": "Christmas Challenge",
+        "isLink": true,
+        "date": "2021-12-08",
+        "year": "21-22",
+        "path": "christmas",
+        "html": "21-22-christmas.html"
+    },
+    {
+        "id": 53,
+        "name": "Web 102",
+        "isLink": true,
+        "date": "2021-12-01",
+        "year": "21-22",
+        "path": "web102",
+        "html": "21-22-web102.html"
+    },
+    {
+        "id": 54,
+        "name": "ECS and DSoc Guest Lectures",
+        "isLink": true,
+        "date": "2021-11-24",
+        "year": "21-22",
+        "path": "guestecsdsocnov2021",
+        "html": "21-22-guestecsdsocnov2021.html"
+    },
+    {
+        "id": 55,
+        "name": "HackTheBox Uni CTF 2021",
+        "isLink": true,
+        "date": "2021-11-19",
+        "year": "21-22",
+        "path": "htbunictf2021",
+        "html": "21-22-htbunictf2021.html"
+    },
+    {
+        "id": 56,
+        "name": "Kali Linux and Metasploit",
+        "isLink": true,
+        "date": "2021-11-17",
+        "year": "21-22",
+        "path": "kaliandmetasploit",
+        "html": "21-22-kaliandmetasploit.html"
+    },
+    {
+        "id": 57,
+        "name": "Pentesting 101",
+        "isLink": true,
+        "date": "2021-11-10",
+        "year": "21-22",
+        "path": "pentesting101",
+        "html": "21-22-pentesting101.html"
+    },
+    {
+        "id": 58,
+        "name": "IBM Guest Lecture",
+        "isLink": true,
+        "date": "2021-11-03",
+        "year": "21-22",
+        "path": "guestibmnov2021",
+        "html": "21-22-guestibmnov2021.html"
+    },
+    {
+        "id": 59,
+        "name": "Open Source Intelligence",
+        "isLink": true,
+        "date": "2021-10-27",
+        "year": "21-22",
+        "path": "osint",
+        "html": "21-22-osint.html"
+    },
+    {
+        "id": 60,
+        "name": "October 2021 EGM and Member Talks",
+        "isLink": true,
+        "date": "2021-10-20",
+        "year": "21-22",
+        "path": "egmandtalks",
+        "html": "21-22-egmandtalks.html"
+    },
+    {
+        "id": 61,
+        "name": "Steganography",
+        "isLink": true,
+        "date": "2021-10-13",
+        "year": "21-22",
+        "path": "stego",
+        "html": "21-22-stego.html"
+    },
+    {
+        "id": 62,
+        "name": "Web 101",
+        "isLink": true,
+        "date": "2021-10-06",
+        "year": "21-22",
+        "path": "web101",
+        "html": "21-22-web101.html"
+    },
+    {
+        "id": 63,
+        "name": "Clubs and Societies Fair 2021",
+        "isLink": true,
+        "date": "2021-09-30",
+        "year": "21-22",
+        "path": "bunfight",
+        "html": "21-22-bunfight.html"
+    },
+    {
+        "id": 64,
+        "name": "Malware",
+        "isLink": false,
+        "date": "2021-06-16",
+        "year": "20-21"
+    },
+    {
+        "id": 65,
+        "name": "May 2021 EGM",
+        "isLink": false,
+        "date": "2021-05-05",
+        "year": "20-21"
+    },
+    {
+        "id": 66,
+        "name": "SUCSS Relaunch Event",
+        "isLink": false,
+        "date": "2021-04-28",
+        "year": "20-21"
+    },
+    {
+        "id": 67,
+        "name": "SUCSS AGM 2021",
+        "isLink": false,
+        "date": "2021-04-19",
+        "year": "20-21"
+    },
+    {
+        "id": 68,
+        "name": "Kali Linux",
+        "isLink": true,
+        "date": "2020-10-21",
+        "year": "20-21",
+        "path": "kali",
+        "html": "20-21-kali.html"
+    },
+    {
+        "id": 69,
+        "name": "Open Source Intelligence",
+        "isLink": true,
+        "date": "2020-10-14",
+        "year": "20-21",
+        "path": "osint",
+        "html": "20-21-osint.html"
+    },
+    {
+        "id": 70,
+        "name": "Introductory Session",
+        "isLink": true,
+        "date": "2020-10-07",
+        "year": "20-21",
+        "path": "intro",
+        "html": "20-21-intro.html"
+    },
+    {
+        "id": 71,
+        "name": "SUCSS AGM 2020",
+        "isLink": false,
+        "date": "2020-05-01",
+        "year": "19-20"
+    },
+    {
+        "id": 72,
+        "name": "March 2020 EGM",
+        "isLink": false,
+        "date": "2020-04-22",
+        "year": "19-20"
+    },
+    {
+        "id": 73,
+        "name": "Team CTF",
+        "isLink": false,
+        "date": "2020-03-04",
+        "year": "19-20"
+    },
+    {
+        "id": 74,
+        "name": "Cryptography",
+        "isLink": false,
+        "date": "2020-02-19",
+        "year": "19-20"
+    },
+    {
+        "id": 75,
+        "name": "Open PGP",
+        "isLink": false,
+        "date": "2020-02-05",
+        "year": "19-20"
+    },
+    {
+        "id": 76,
+        "name": "Hack The Box",
+        "isLink": false,
+        "date": "2020-01-29",
+        "year": "19-20"
+    },
+    {
+        "id": 77,
+        "name": "Mainframes (F-Secure Guest Session)",
+        "isLink": false,
+        "date": "2019-12-10",
+        "year": "19-20"
+    },
+    {
+        "id": 78,
+        "name": "Wi-Fi Cracking",
+        "isLink": false,
+        "date": "2019-11-27",
+        "year": "19-20"
+    },
+    {
+        "id": 79,
+        "name": "Password Cracking",
+        "isLink": false,
+        "date": "2019-11-20",
+        "year": "19-20"
+    },
+    {
+        "id": 80,
+        "name": "Network Security 101",
+        "isLink": false,
+        "date": "2019-11-13",
+        "year": "19-20"
+    },
+    {
+        "id": 81,
+        "name": "Wireshark",
+        "isLink": false,
+        "date": "2019-11-06",
+        "year": "19-20"
+    },
+    {
+        "id": 82,
+        "name": "Kali Linux",
+        "isLink": false,
+        "date": "2019-10-30",
+        "year": "19-20"
+    },
+    {
+        "id": 83,
+        "name": "Bash and Linux",
+        "isLink": false,
+        "date": "2019-10-16",
+        "year": "19-20"
+    },
+    {
+        "id": 84,
+        "name": "Open Source Intelligence",
+        "isLink": false,
+        "date": "2019-10-09",
+        "year": "19-20"
+    },
+    {
+        "id": 85,
+        "name": "Web 101",
+        "isLink": false,
+        "date": "2019-10-02",
+        "year": "19-20"
+    },
+    {
+        "id": 86,
+        "name": "SUCSS AGM 2019",
+        "isLink": false,
+        "date": "2019-05-02",
+        "year": "18-19"
+    },
+    {
+        "id": 87,
+        "name": "Hacking Boxen",
+        "isLink": false,
+        "date": "2019-02-27",
+        "year": "18-19"
+    },
+    {
+        "id": 88,
+        "name": "BGP & Routing Security",
+        "isLink": false,
+        "date": "2019-02-20",
+        "year": "18-19"
+    },
+    {
+        "id": 89,
+        "name": "Web Scripting 101",
+        "isLink": false,
+        "date": "2019-02-13",
+        "year": "18-19"
+    },
+    {
+        "id": 90,
+        "name": "ECSS & SUCSS Capture the Flag with BAE",
+        "isLink": false,
+        "date": "2018-12-08",
+        "year": "18-19"
+    },
+    {
+        "id": 91,
+        "name": "CSA Presents: Internships Evening",
+        "isLink": false,
+        "date": "2018-12-05",
+        "year": "18-19"
+    },
+    {
+        "id": 92,
+        "name": "Network Traffic Analysis",
+        "isLink": false,
+        "date": "2018-11-21",
+        "year": "18-19"
+    },
+    {
+        "id": 93,
+        "name": "Cyber Security Group: Escape rooms CTF and PhD Information",
+        "isLink": false,
+        "date": "2018-11-14",
+        "year": "18-19"
+    },
+    {
+        "id": 94,
+        "name": "MWR: Common Vulnerabilities in eCommerce/Financial Applications",
+        "isLink": false,
+        "date": "2018-10-31",
+        "year": "18-19"
+    },
+    {
+        "id": 95,
+        "name": "Network Enumeration",
+        "isLink": false,
+        "date": "2018-10-24",
+        "year": "18-19"
+    },
+    {
+        "id": 96,
+        "name": "Open Source Intelligence Gathering",
+        "isLink": false,
+        "date": "2018-10-17",
+        "year": "18-19"
+    },
+    {
+        "id": 97,
+        "name": "Bash 101: Command Line Basics",
+        "isLink": false,
+        "date": "2018-10-10",
+        "year": "18-19"
+    },
+    {
+        "id": 98,
+        "name": "Welcome Meeting",
+        "isLink": false,
+        "date": "2018-10-03",
+        "year": "18-19"
+    },
+    {
+        "id": 99,
+        "name": "WiFi Hacking Session",
+        "isLink": false,
+        "date": "2018-05-09",
+        "year": "17-18"
+    },
+    {
+        "id": 100,
+        "name": "SUCSS AGM",
+        "isLink": false,
+        "date": "2018-05-02",
+        "year": "17-18"
+    },
+    {
+        "id": 101,
+        "name": "MWR InfoSecurity Present: Windows Network Security",
+        "isLink": false,
+        "date": "2018-02-21",
+        "year": "17-18"
+    },
+    {
+        "id": 102,
+        "name": "SUCSS Data Exfiltration CTF Challenge Again!",
+        "isLink": false,
+        "date": "2018-02-07",
+        "year": "17-18"
+    },
+    {
+        "id": 103,
+        "name": "SUCSS Data Exfiltration CTF Challenge",
+        "isLink": false,
+        "date": "2018-01-31",
+        "year": "17-18"
+    },
+    {
+        "id": 104,
+        "name": "SUCSS do Network Emuneration",
+        "isLink": false,
+        "date": "2017-11-29",
+        "year": "17-18"
+    },
+    {
+        "id": 105,
+        "name": "SUCSS EGM (Extraordinary General Meeting)",
+        "isLink": false,
+        "date": "2017-11-27",
+        "year": "17-18"
+    },
+    {
+        "id": 106,
+        "name": "SUCSS Casual Challenges",
+        "isLink": false,
+        "date": "2017-11-15",
+        "year": "17-18"
+    },
+    {
+        "id": 107,
+        "name": "Careers Networking - PGP Key Party",
+        "isLink": false,
+        "date": "2017-11-08",
+        "year": "17-18"
+    },
+    {
+        "id": 108,
+        "name": "MWR InfoSecurity Present: Open Source Intelligence Gathering",
+        "isLink": false,
+        "date": "2017-11-01",
+        "year": "17-18"
+    },
+    {
+        "id": 109,
+        "name": "SUCSS - Linux Shell",
+        "isLink": false,
+        "date": "2017-10-25",
+        "year": "17-18"
+    },
+    {
+        "id": 110,
+        "name": "SUCSS Web102",
+        "isLink": false,
+        "date": "2017-10-11",
+        "year": "17-18"
+    },
+    {
+        "id": 111,
+        "name": "SUCSS Welcome Meeting",
+        "isLink": false,
+        "date": "2017-10-04",
+        "year": "17-18"
+    },
+    {
+        "id": 112,
+        "name": "SUCSS do metasploit",
+        "isLink": false,
+        "date": "2017-05-09",
+        "year": "16-17"
+    },
+    {
+        "id": 113,
+        "name": "SUCSS AGM 2017",
+        "isLink": false,
+        "date": "2017-04-26",
+        "year": "16-17"
+    },
+    {
+        "id": 114,
+        "name": "MWR Infosecurity: Password Cracking Workshop",
+        "isLink": false,
+        "date": "2017-02-08",
+        "year": "16-17"
+    },
+    {
+        "id": 115,
+        "name": "SUCSS Reverse Engineers Binaries",
+        "isLink": false,
+        "date": "2016-11-09",
+        "year": "16-17"
+    },
+    {
+        "id": 116,
+        "name": "SQL Injection: What it is, Why it's so bad and How to prevent it",
+        "isLink": false,
+        "date": "2016-10-26",
+        "year": "16-17"
+    },
+    {
+        "id": 117,
+        "name": "Privilege Escalation with MWR InfoSecurity",
+        "isLink": false,
+        "date": "2016-10-21",
+        "year": "16-17"
+    },
+    {
+        "id": 118,
+        "name": "First session of the year",
+        "isLink": false,
+        "date": "2016-10-04",
+        "year": "16-17"
+    },
+    {
+        "id": 119,
+        "name": "Multi Area Challange",
+        "isLink": false,
+        "date": "2016-05-03",
+        "year": "15-16"
+    },
+    {
+        "id": 120,
+        "name": "Forensic Challange",
+        "isLink": false,
+        "date": "2016-04-19",
+        "year": "15-16"
+    },
+    {
+        "id": 121,
+        "name": "SUCSS does AGM",
+        "isLink": false,
+        "date": "2016-03-15",
+        "year": "15-16"
+    },
+    {
+        "id": 122,
+        "name": "SUCSS does Wireshark",
+        "isLink": false,
+        "date": "2016-03-08",
+        "year": "15-16"
+    },
+    {
+        "id": 123,
+        "name": "BT Hackathon",
+        "isLink": false,
+        "date": "2016-02-29",
+        "year": "15-16"
+    },
+    {
+        "id": 124,
+        "name": "SUCSS does rubber duckys again!",
+        "isLink": false,
+        "date": "2016-02-23",
+        "year": "15-16"
+    },
+    {
+        "id": 125,
+        "name": "SUCSS Does Rubber Ducky",
+        "isLink": false,
+        "date": "2016-02-09",
+        "year": "15-16"
+    },
+    {
+        "id": 126,
+        "name": "SUCSS does Cryptography",
+        "isLink": false,
+        "date": "2015-12-01",
+        "year": "15-16"
+    },
+    {
+        "id": 127,
+        "name": "SUCSS does Bandit",
+        "isLink": false,
+        "date": "2015-11-17",
+        "year": "15-16"
+    },
+    {
+        "id": 128,
+        "name": "SUCSS teaches Encryption",
+        "isLink": false,
+        "date": "2015-11-10",
+        "year": "15-16"
+    },
+    {
+        "id": 129,
+        "name": "SUCSS does Natas (Advanced)",
+        "isLink": false,
+        "date": "2015-11-03",
+        "year": "15-16"
+    },
+    {
+        "id": 130,
+        "name": "SUCSS does SQL Introduction",
+        "isLink": false,
+        "date": "2015-10-27",
+        "year": "15-16"
+    },
+    {
+        "id": 131,
+        "name": "Web Application Challenges",
+        "isLink": false,
+        "date": "2015-10-20",
+        "year": "15-16"
+    },
+    {
+        "id": 132,
+        "name": "Web Application Hacking 101",
+        "isLink": false,
+        "date": "2015-10-12",
+        "year": "15-16"
+    },
+    {
+        "id": 133,
+        "name": "Introductory Session",
+        "isLink": false,
+        "date": "2015-10-05",
+        "year": "15-16"
     }
 ]

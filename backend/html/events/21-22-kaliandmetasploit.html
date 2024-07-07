@@ -1,0 +1,211 @@
+<main>
+ <section>
+  <h1>
+   Kali Linux and Metasploit
+  </h1>
+  <p>
+   <strong>
+    Date
+   </strong>
+   : 2021-11-17
+  </p>
+  <p>
+   <strong>
+    Difficulty
+   </strong>
+   : Beginner to Advanced
+  </p>
+  <p>
+   <strong>
+    Delivered By
+   </strong>
+   : Bilaal Rashid
+  </p>
+  <h2>
+   Overview
+  </h2>
+  <p>
+   Kali Linux is a distribution of Linux configured for penetration testing, or pentesting. Kali has a wide variety of tools preinstalled for pentesting. This session's challenges will go through a selection of the tools available in Kali Linux and we will take a big look at one of its built in frameworks, Metasploit. The Metasploit Framework is a collection of tools for finding, configuring and executing exploits and payloads on a target and is hugely useful for attacking the services running on a target's machine.
+  </p>
+  <h2>
+   Prerequisites
+  </h2>
+  <p>
+   This sessions assumes that you are familiar with a Unix shell. If you are not but wish to take part, we highly recommend that you read
+   <a href="https://swcarpentry.github.io/shell-novice/">
+    the first three chapters of this crash course
+   </a>
+   .
+  </p>
+  <p>
+   This session also requires the use of many tools that are built into Kali Linux. The easiest way to attempt it is to setup a Kali VM (
+   <a href="https://sucss.org/docs/kali-vm">
+    described here
+   </a>
+   ). Alternatively, if you have a UNIX based environment, such as Linux, macOS, or Windows Subsystem for Linux, you may be able to download the required tools individually. Some of the tools required are
+   <a href="https://metasploit.com/download">
+    metasploit
+   </a>
+   ,
+   <a href="https://nmap.org/download.html">
+    nmap
+   </a>
+   ,
+   <a href="https://gnupg.org/download/index.html">
+    gpg
+   </a>
+   ,
+   <a href="https://www.openssh.com/portable.html">
+    ssh
+   </a>
+   ,
+   <a href="https://curl.se/download.html">
+    curl
+   </a>
+   ,
+   <a href="https://www.mysql.com/downloads/">
+    mysql
+   </a>
+   and
+   <a href="https://github.com/vanhauser-thc/thc-hydra">
+    hydra
+   </a>
+   . A list of all tools pre-installed with Kali can be found on their
+   <a href="https://www.kali.org/tools/">
+    website
+   </a>
+   .
+  </p>
+  <h2>
+   Challenges
+  </h2>
+  <p>
+   This session will comprise of a virtual machine challenge, that has a particular focus on the Metasploit Framework, and a vulnerable network challenge, that will allow you to explore a wider range of tools available in Kali.
+  </p>
+  <p>
+   <strong>
+    You can download the virtual machine image
+    <a href="https://drive.google.com/file/d/1rtbfzee8THHfz3tA4RMa76yuXpOPvb2R/view?usp=sharing">
+     here
+    </a>
+    .
+   </strong>
+   The credentials for the VM are user:
+   <code>
+    sucss
+   </code>
+   and password:
+   <code>
+    sucss
+   </code>
+   . You may only log in to run
+   <code>
+    ifconfig
+   </code>
+   to get the IP address of the machine to attack it. You may only use the Metasploit Framework and other tools built into Kali to attack it. Attacking this machine by modifying the start-up script using GRUB is
+   <strong>
+    <em>
+     not
+    </em>
+    allowed
+   </strong>
+   .
+  </p>
+  <p>
+   Our network challenge can be accessed by SSHing into
+   <code>
+    <a class="__cf_email__" data-cfemail="d5a6a0b6a6a6beb4b9bc95beb4b9bcfba6a0b6a6a6fbbaa7b2" href="/cdn-cgi/l/email-protection">
+     [email protected]
+    </a>
+   </code>
+   . Anything on the network
+   <code>
+    172.19.0.0/24
+   </code>
+   is fair game to attack
+   <em>
+    EXCEPT
+   </em>
+   for items named
+   <code>
+    sucss-kali
+   </code>
+   - you must
+   <em>
+    NOT
+   </em>
+   attack these.
+  </p>
+  <h2>
+   Useful Resources
+  </h2>
+  <p>
+   Some useful resources for this week include:
+  </p>
+  <ul>
+   <li>
+    <p>
+     <a href="https://github.com/rapid7/metasploit-framework/wiki/Exploit-Ranking">
+      Metasploit Exploit Ranking
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="https://www.infosecmatter.com/metasploit-module-library/">
+      InfosecMatter Metasploit Module Library
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="https://www.offensive-security.com/metasploit-unleashed/msfconsole-commands/">
+      Msfconsole Commands
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="https://www.w3schools.com/sql/sql_injection.asp">
+      SQL Injection Tutorial
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="https://pastebin.com/vBeeHngF">
+      Username List
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="https://pastebin.com/LZ8aZCs7">
+      Password List
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="https://www.base64decode.org">
+      Base64 Decoder
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="https://cryptii.com/pipes/base32">
+      Base32 Decoder
+     </a>
+    </p>
+   </li>
+   <li>
+    <p>
+     <a href="https://gchq.github.io/CyberChef/">
+      CyberChef
+     </a>
+    </p>
+   </li>
+  </ul>
+ </section>
+</main>

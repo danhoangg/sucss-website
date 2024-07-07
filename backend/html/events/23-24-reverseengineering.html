@@ -1,0 +1,50 @@
+<main>
+ <section>
+  <h1>
+   Introduction to Reverse Engineering
+  </h1>
+  <p>
+   <strong>
+    Date
+   </strong>
+   : 2024-02-28
+  </p>
+  <p>
+   <strong>
+    Difficulty
+   </strong>
+   : Beginner
+  </p>
+  <p>
+   <strong>
+    Delivered By
+   </strong>
+   : Albert Ratuszniak and Skyler Mansfield
+  </p>
+  <p>
+   Originally planned to run 21/02/2024, but postponed to the 28/02/2024 due to technical issues.
+  </p>
+  <h2>
+   Overview
+  </h2>
+  <p>
+   Getting programs to misbehave is the basis of offensive security (and malicious threats). Unfortunately, we don't typically have access to the source code of said programs. Thus: reverse engineering. this is the act of looking at a compiled program, and attempting to understand how it functions, as well as attempting to recreate something close to the original source code. Once we know how a program functions, we move on to binary exploitation. This is the act of using carefully crafted inputs to cause a program to do something it wasn't intended to; the most basic of such attacks being a buffer overflow. We will be covering tools and techniques for both, as well as how to spot vulnerable code.
+  </p>
+  <h2>
+   Prerequisites
+  </h2>
+  <p>
+   A Kali VM is recommended for this session. The following script will install the necessary tools for this session, it can also be found at
+   <a href="https://go.sucss.org/binexp-tools">
+    https://go.sucss.org/binexp-tools
+   </a>
+   .
+  </p>
+  <p>
+   To install the tools, run the following commands in your terminal:
+  </p>
+  <pre><code>curl -sSL https://go.sucss.org/binexp-tools-raw | tr -d "\r" | tee "install.sh" | sh
+source ~/.zsh/path
+</code></pre>
+ </section>
+</main>

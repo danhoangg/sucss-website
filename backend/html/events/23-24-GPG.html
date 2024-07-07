@@ -1,0 +1,120 @@
+<main>
+ <section>
+  <h1>
+   GPG/Keysigning
+  </h1>
+  <p>
+   <strong>
+    Date
+   </strong>
+   : 2023-10-18
+  </p>
+  <p>
+   <strong>
+    Difficulty
+   </strong>
+   : Beginner
+  </p>
+  <p>
+   <strong>
+    Delivered By
+   </strong>
+   : Skyler Mansfield
+  </p>
+  <h2>
+   What is GPG/Keysigning?
+  </h2>
+  <p>
+   GPG keysigning, a crucial part of the web of trust in OpenPGP/GPG environments, involves users digitally verifying and vouching for the authenticity of each other's public keys. This process leverages asymmetric cryptography.
+  </p>
+  <p>
+   Users create key pairs:
+  </p>
+  <ol>
+   <li>
+    A public key (for encryption and verification)
+   </li>
+   <li>
+    A private key (for decryption and signing)
+   </li>
+  </ol>
+  <p>
+   When one user signs another user's public key with their private key, it signifies trust and confidence in the key's association with the claimed identity. These trust relationships create a network of verified keys, enhancing the reliability of secure communication and file integrity validation. The web of trust grows as more participants sign each other's keys, indirectly extending trust to keys they haven't personally validated.
+  </p>
+  <h2>
+   Prerequisites
+  </h2>
+  <p>
+   This page shows some of the basics for using GPG software on Windows/Linux/MacOS
+   <a href="https://sucss.org/docs/pgp">
+    https://sucss.org/docs/pgp
+   </a>
+  </p>
+  <h3>
+   Windows
+  </h3>
+  <p>
+   For the challanges you need
+   <a href="https://gpg4win.org/download.html">
+    Gpg4Win Software
+   </a>
+   .
+  </p>
+  <h3>
+   Linux
+  </h3>
+  <p>
+   Install the command-line gpg software
+   <code>
+    sudo apt-get install gpg
+   </code>
+  </p>
+  <p>
+   For gnome environments, the Seahorse application can manage keys graphically (This assumes you are using Nautilus as your file manager). This integrates with Nautilus to add
+   <code>
+    encrypt/sign/verify/decrypt
+   </code>
+   options within the file manager.
+   <code>
+    sudo apt-get install seahorse seahorse-nautilus
+   </code>
+  </p>
+  <h3>
+   MacOS
+  </h3>
+  <p>
+   Install the
+   <a href="https://gpgtools.org/">
+    GPG Toolkit
+   </a>
+  </p>
+  <h2>
+   Challenge
+  </h2>
+  <p>
+   You'll get to create your own keypairs that will enable you to communicate securely with each other and verify that files haven't been tampered with. We'll also be using a key-server so you can sign each others keys and be able to trust people through a web of trust
+  </p>
+  <h2>
+   Session Link
+  </h2>
+  <p>
+   The link to the session is
+   <a href="https://gpg.sucss.org/">
+    https://gpg.sucss.org/
+   </a>
+  </p>
+  <h2>
+   Useful resource
+  </h2>
+  <p>
+   <a href="https://en.wikipedia.org/wiki/Web_of_trust">
+    https://en.wikipedia.org/wiki/Web_of_trust
+   </a>
+  </p>
+  <p>
+   <a href="https://sucss.org/docs/pgp">
+    https://sucss.org/docs/pgp
+   </a>
+  </p>
+ </section>
+</main>

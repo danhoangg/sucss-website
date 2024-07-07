@@ -1,0 +1,157 @@
+<main>
+ <section>
+  <h1>
+   Introduction to Reverse Engineering
+  </h1>
+  <p>
+   <strong>
+    Date
+   </strong>
+   : 2022-02-02
+  </p>
+  <p>
+   <strong>
+    Difficulty
+   </strong>
+   : Intermediate to Advanced
+  </p>
+  <p>
+   <strong>
+    Delivered By
+   </strong>
+   : Joshua Wardle
+  </p>
+  <h2>
+   Overview
+  </h2>
+  <p>
+   Reverse engineering is the art of "breaking down" program code, normally without access to the original source code. Typically, this involves finding out how various functions in the code are built, what they do, and how each relates to and interacts with other code functions. In the context of cyber security, this often involves deconstructing malicious code (e.g., ransomware) to develop patches/tools to counteract it, or analysing commercial software to identify any vulnerabilities that might be present.
+  </p>
+  <h2>
+   Challenges
+  </h2>
+  <p>
+   This session has two main parts:
+  </p>
+  <h3>
+   ZombieLand CTF
+  </h3>
+  <p>
+   The main task is to tackle a modified ZombieLand CTF, which introduces
+   <strong>
+    basic
+   </strong>
+   concepts in reverse engineering such as function dependencies, tracing variables, decoding values, interacting with the stack, and so forth. This will introduce you to Ghidra. Can you get through ZombieLand without dying? Or will you turn into a human happy meal? Only time will tell...
+  </p>
+  <p>
+   A guide will be provided so you can follow along and gain experience without getting stuck.
+  </p>
+  <p>
+   <img alt="image" src="https://user-images.githubusercontent.com/63865237/144685159-bc2de8b1-dc73-468b-8867-dab88c053432.png"/>
+  </p>
+  <h3>
+   Introduction to Anti-Debugging
+  </h3>
+  <p>
+   For those who already know how to reverse-engineer binaries, there is the opportunity to explore a more
+   <strong>
+    advanced
+   </strong>
+   topic: anti-debugging. This refers to techniques are meant to ensure that a program is not running under a debugger, and in the case that it is, to change its behavior correspondingly. After being introduced to basic techniques, you will be able to try your hand at a small binary which has a few of these techniques inside it; can you get the flag?
+  </p>
+  <h2>
+   Prerequesites
+  </h2>
+  <p>
+   To tackle this session, you will need awareness of programming principles, the C language, and assembly. A quick recap will be given on the relevant concepts needed for the challenges, but you'll find the session easier if you come at least
+   <em>
+    slightly
+   </em>
+   prepared:
+  </p>
+  <ul>
+   <li>
+    <a href="https://www.learn-c.org/">
+     learn-c.org
+    </a>
+   </li>
+   <li>
+    <a href="https://www.cs.virginia.edu/~evans/cs216/guides/x86.html">
+     x86 Assembly Guide
+    </a>
+   </li>
+  </ul>
+  <p>
+   You will also need to download and install
+   <a href="https://ghidra-sre.org/">
+    Ghidra
+   </a>
+   . We're aware that some may prefer
+   <a href="https://hex-rays.com/ida-free/">
+    IDA
+   </a>
+   , and you're welcome to use it; but for beginners, we recommend sticking with Ghidra. If you wish to tackle the anti-debugging challenge, you'll need a Windows debugger such as
+   <a href="https://www.ollydbg.de/">
+    OllyDbg
+   </a>
+   or
+   <a href="https://x64dbg.com/">
+    x64dbg
+   </a>
+   . The former is
+   <a href="https://www.kali.org/tools/ollydbg/">
+    known to work
+   </a>
+   on Kali Linux.
+  </p>
+  <p>
+   For those on Linux, you will need to do one of the following in order to run either executable, as they were written for Windows:
+  </p>
+  <ul>
+   <li>
+    You could install
+    <a href="https://wiki.winehq.org/Download">
+     Wine
+    </a>
+    , which lets you run Windows executables on Unix-based systems.
+   </li>
+   <li>
+    You could use the
+    <a href="https://sve.soton.ac.uk">
+     Southampton Virtual Environment
+    </a>
+    and run the executables on a university PC. Note that using the VMWare Horizon Client appears to be more reliable than the browser-based interface.
+   </li>
+  </ul>
+  <p>
+   Doing either of the above isn't
+   <em>
+    strictly
+   </em>
+   necessary, but it may help you to do so. Alternatively, you may wish to use a VM dedicated to reverse engineering, such as
+   <a href="https://github.com/mandiant/flare-vm">
+    FlareVM
+   </a>
+   , but this would take some time to set up.
+  </p>
+  <h2>
+   Session Link
+  </h2>
+  <p>
+   <strong>
+    You can find all the resources needed for this session, including the guides and both binaries, at
+    <a href="https://reversing.sucss.org">
+     https://reversing.sucss.org
+    </a>
+    !
+   </strong>
+  </p>
+  <p>
+   Please note, like usual, that uninformed brute forcing of the answers using tools like Hydra is
+   <strong>
+    not allowed
+   </strong>
+   .
+  </p>
+ </section>
+</main>

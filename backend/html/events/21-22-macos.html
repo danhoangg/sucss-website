@@ -1,0 +1,124 @@
+<main>
+ <section>
+  <h1>
+   macOS Security
+  </h1>
+  <p>
+   <strong>
+    Date
+   </strong>
+   : 2022-02-09
+  </p>
+  <p>
+   <strong>
+    Difficulty
+   </strong>
+   : Beginner
+  </p>
+  <p>
+   <strong>
+    Delivered By
+   </strong>
+   : Bilaal Rashid
+  </p>
+  <h2>
+   Overview
+  </h2>
+  <p>
+   macOS is Apple's proprietary UNIX-based desktop operating system, rivalling Windows, Linux and Chrome OS, and is
+   <em>
+    (arguably)
+   </em>
+   the greatest operating system ever made. Despite this, there are still a few places where security could be improved. In this session, we will explore many of Apple's security mechanisms and common attack vectors for the operating system. We will then target a remote server running macOS to exploit many of these common weaknesses and earn some all important flags.
+  </p>
+  <h2>
+   Prerequisites
+  </h2>
+  <p>
+   The primary requirements for the session is an
+   <a href="https://sucss.org/docs/ssh">
+    SSH client
+   </a>
+   and, if attempting the challenge remotely, the
+   <a href="https://knowledgenow.soton.ac.uk/Articles/KB0011610">
+    University of Southampton's GlobalProtect VPN client
+   </a>
+   . A couple of the challenges also require the Jumbo version of
+   <a href="https://github.com/openwall/john">
+    John the Ripper
+   </a>
+   and
+   <a href="https://github.com/hashcat/hashcat">
+    Hashcat
+   </a>
+   , although they aren't pivotal to the session and won't be too computationally intensive. Both of these come pre-installed with
+   <a href="https://sucss.org/docs/kali-vm">
+    Kali
+   </a>
+   or can be manually installed:
+  </p>
+  <pre><code># Debian Linux
+apt install john
+apt install hashcat
+
+# macOS
+brew install john-jumbo
+brew install hashcat
+</code></pre>
+  <h2>
+   Challenges
+  </h2>
+  <p>
+   The challenges will take place over SSH with a locally hosted device running macOS. Unfortunately it will only be running for the duration of the in-person session (6pm-8pm 9th Feb 2022) and so it will not be possible to attempt this session another time. You will need to be on the University's local network, so if you intend to take part outside of campus or halls then you will need to be connected to the
+   <a href="https://knowledgenow.soton.ac.uk/Articles/KB0011610">
+    University's VPN
+   </a>
+   .
+  </p>
+  <h2>
+   Useful Resources
+  </h2>
+  <ul>
+   <li>
+    <a href="https://www.base64decode.org/">
+     Base64 Decoder
+    </a>
+   </li>
+   <li>
+    <a href="https://gchq.github.io/CyberChef/">
+     CyberChef
+    </a>
+   </li>
+   <li>
+    <a href="https://pastebin.com/z5WuzzbL">
+     wordlist.txt
+    </a>
+   </li>
+   <li>
+    <a href="https://book.hacktricks.xyz/macos/macos-security-and-privilege-escalation">
+     HackTricks MacOS Security &amp; Privilege Escalation
+    </a>
+   </li>
+  </ul>
+  <h2>
+   Further Reading
+  </h2>
+  <ul>
+   <li>
+    <a href="https://owlink.org">
+     Open Wireless Link
+    </a>
+   </li>
+   <li>
+    <a href="https://www.blackhat.com/presentations/bh-jp-08/bh-jp-08-Miller/BlackHat-Japan-08-Miller-Hacking-OSX.pdf">
+     BlackHat 2008 Hacking Mac OS X Presentation
+    </a>
+   </li>
+   <li>
+    <a href="https://www.ryanpickren.com/safari-uxss">
+     Safari UXSS
+    </a>
+   </li>
+  </ul>
+ </section>
+</main>
