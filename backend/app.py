@@ -1,13 +1,22 @@
 from flask import Flask, request, send_from_directory, abort, jsonify 
+from flask_jwt_extended import JWTManager, create_access_token, jwt_required, get_jwt_identity
 from flask_cors import CORS
 import json
 import os, datetime
+from dotenv import load_dotenv
+
+load_dotenv()
 
 EVENTS_FOLDER = 'html/events'
 DOCS_FOLDER = 'html/docs'
 JSON_FILE = 'events.json'
 
 app = Flask(__name__, static_folder='../frontend/sucss/build', static_url_path='/')
+
+app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY')
+app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
+
+jwt = JWTManager(app)
 
 def date_to_academic_year(date):
     date_object = datetime.strptime(date, "%Y-%m-%d")
@@ -17,6 +26,7 @@ def date_to_academic_year(date):
         return f"{(year-1) % 100:02d}-{year % 100:02d}"
     else:  
         return f"{year % 100:02d}-{(year+1) % 100:02d}"
+
 
 @app.route('/')
 def serve():
@@ -35,6 +45,23 @@ def serve_static_files(path):
 @app.errorhandler(404)   
 def not_found(e):   
   return send_from_directory(app.static_folder, 'index.html')
+
+
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.json.get('username')
+    password = request.json.get('password')
+    if username == os.getenv('LOGIN_USERNAME') and password == os.getenv('LOGIN_PASSWORD'):
+        access_token = create_access_token(identity=username)
+        return jsonify(access_token=access_token)
+    return jsonify({'error': 'Bad username or password'}), 401
+
+@app.route('/api/protected', methods=['GET'])
+@jwt_required()
+def protected():
+    current_user = get_jwt_identity()
+    return jsonify(logged_in_as=current_user), 200
+
 
 @app.route('/api/events', methods=['POST'])
 def get_events():
@@ -90,6 +117,6 @@ def get_docs(docs):
         return jsonify({'error': f'An error occurred: {str(e)}'}), 500
 
 if __name__ == '__main__':
-    from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
-    #app.run(debug=True)
+    #from waitress import serve
+    #serve(app, host="0.0.0.0", port=8080)
+    app.run(debug=True)
