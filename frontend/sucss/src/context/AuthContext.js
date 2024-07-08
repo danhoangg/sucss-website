@@ -20,8 +20,10 @@ const AuthProvider = ({ children }) => {
             });
             localStorage.setItem('token', token);
             if (callback) callback();
+            return Promise.resolve();
         } catch (error) {
             console.error('Login failed', error);
+            return Promise.reject(error);
         }
     };
 
