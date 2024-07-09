@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 
 import { FaChevronLeft, FaChevronRight, FaPlus } from 'react-icons/fa';
 import { BiLogOut } from "react-icons/bi";
@@ -46,6 +46,10 @@ const Table = ({ data, columns, rowsPerPage, search, setSearch }) => {
     const startIndex = currentPage * rowsPerPage;
     const endIndex = startIndex + rowsPerPage;
     const currentData = filteredData.slice(startIndex, endIndex);
+
+    useEffect(() => {
+        setCurrentPage(0);
+    }, [search])
 
     return (
         <div className="overflow-x-auto">
