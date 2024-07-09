@@ -40,7 +40,8 @@ const Table = ({ data, columns, rowsPerPage, search, setSearch }) => {
     }
 
     const filteredData = data.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
+        item.name.toLowerCase().includes(search.toLowerCase()) ||
+        item.date.toLowerCase().includes(search.toLowerCase())
     );
 
     const startIndex = currentPage * rowsPerPage;
