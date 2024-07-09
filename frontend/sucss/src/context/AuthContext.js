@@ -33,6 +33,7 @@ const AuthProvider = ({ children }) => {
             token: null,
         });
         localStorage.removeItem('token');
+        return Promise.resolve();
     };
 
     const validateToken = async (token) => {

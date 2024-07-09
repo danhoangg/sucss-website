@@ -9,6 +9,7 @@ import DocPage from "./pages/DocPage";
 import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
+import AdminPage from "./pages/AdminPage";
 
 import Navbar from "./components/Navbar";
 
@@ -34,7 +35,15 @@ function App() {
               path="/admin"
               element={
                 <PrivateRoute>
-                  <div>Protected content</div>
+                  <AdminPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/admin/:id"
+              element={
+                <PrivateRoute>
+                  <div>hi</div>
                 </PrivateRoute>
               }
             />

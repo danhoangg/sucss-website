@@ -57,7 +57,7 @@ const LoginPage = () => {
                         placeholder="Password"
                     />
                 </div>
-                <button disabled={disabledButton} type="submit" className='p-3 text-2xl transition ease-in-out bg-gradient-to-br enabled:hover:-translate-y-1 disabled:from-gray-600 disabled:to-gray-800 from-sucss-purple to-dark-sucss-purple rounded-xl enabled:hover:shadow-lg enabled:hover:shadow-gray-900'>
+                <button disabled={disabledButton} type="submit" className='p-3 text-2xl transition ease-in-out focus:outline-none bg-gradient-to-br enabled:focus:-translate-y-1 enabled:hover:-translate-y-1 disabled:from-gray-600 disabled:to-gray-800 from-sucss-purple to-dark-sucss-purple rounded-xl enabled:focus:shadow-lg enabled:focus:shadow-gray-900 enabled:hover:shadow-lg enabled:hover:shadow-gray-900'>
                     Sign In
                 </button>
             </form>
