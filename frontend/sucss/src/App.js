@@ -10,6 +10,7 @@ import AboutPage from "./pages/AboutPage";
 import NotFound from "./pages/NotFound";
 import LoginPage from "./pages/LoginPage";
 import AdminPage from "./pages/AdminPage";
+import EditPage from "./pages/EditPage";
 
 import Navbar from "./components/Navbar";
 
@@ -40,10 +41,10 @@ function App() {
               }
             />
             <Route
-              path="/admin/:id"
+              path="/admin/:event_id"
               element={
                 <PrivateRoute>
-                  <div>hi</div>
+                  <EditPage />
                 </PrivateRoute>
               }
             />

@@ -17,17 +17,17 @@ CORS(app)
 app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY')
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
 
+app.config['JWT_ACCESS_TOKEN_EXPIRES'] = datetime.timedelta(minutes=30)
+
 jwt = JWTManager(app)
 
-def date_to_academic_year(date):
-    date_object = datetime.strptime(date, "%Y-%m-%d")
-    year = date_object.year
+def date_to_academic_year(date_str):
+    date = datetime.datetime.strptime(date_str, "%Y-%m-%d")
+    start_year = date.year
+    if date.month < 9:
+        start_year -= 1 
 
-    if date_object.month < 9: 
-        return f"{(year-1) % 100:02d}-{year % 100:02d}"
-    else:  
-        return f"{year % 100:02d}-{(year+1) % 100:02d}"
-
+    return f"{start_year % 100:02d}-{(start_year + 1) % 100:02d}"
 
 @app.route('/')
 def serve():
@@ -64,6 +64,81 @@ def protected():
     return jsonify(logged_in_as=current_user), 200
 
 
+@app.route('/api/edit-event', methods=['POST'])
+@jwt_required()
+def edit_event():
+    data = request.get_json()
+
+    id = int(data.get('id'))
+    name = data.get('name')
+    date = data.get('date')
+    path = data.get('path')
+    is_link = data.get('isLink')
+    code = data.get('code')
+    
+    if not id or not name or not date or not is_link:
+        return jsonify({'error': 'Missing required fields'}), 400
+    
+    if is_link and (not code or not path):
+            return jsonify({'error': 'Missing required fields'}), 400
+
+    try:
+        year = date_to_academic_year(date)
+    except ValueError:
+        return jsonify({'error': 'Invalid date format'}), 400
+    
+    try:
+        with open(JSON_FILE, 'r') as file:
+            events = json.load(file)
+        
+        event = next((e for e in events if e['id'] == id), None)
+        
+        if event is None:
+            return jsonify({"error": "Event not found"}), 404
+
+        # Check if event's year+path is unique
+        if is_link and any(e for e in events if e['year'] == year and e.get('path') == path and e['id'] != id):
+            return jsonify({'error': 'Event with the same year and path already exists'}), 409
+        
+        # if edit is a link then write a new html file
+        if is_link:
+            html = f"{year}-{path}.html"
+            html_path = os.path.join(EVENTS_FOLDER, html)
+            
+            # if the old event was a link, delete the old html file
+            if event['isLink']:
+                os.remove(os.path.join(EVENTS_FOLDER, event['html']))
+            
+            with open(html_path, 'w') as file:
+                file.write(code)  
+
+            event.update({
+                'name': name,
+                'isLink': is_link,
+                'date': date,
+                'year': year,
+                'path': path,
+                'html': html
+            })
+        else:
+            event.update({
+                'name': name,
+                'isLink': is_link,
+                'date': date,
+                'year': year
+            })
+        
+        with open(JSON_FILE, 'w') as file:
+            json.dump(events, file, indent=4)   
+            
+        return jsonify({'success': 'Event updated successfully'}), 200
+        
+    except json.JSONDecodeError:
+        return jsonify({"error": "Error decoding JSON"}), 500
+    except Exception as e:
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+
 @app.route('/api/events', methods=['POST'])
 def get_events():
     try:
@@ -74,6 +149,40 @@ def get_events():
         return jsonify({"error": "Events file not found"}), 404
     except json.JSONDecodeError:
         return jsonify({"error": "Events file is not valid JSON"}), 500
+
+@app.route('/api/get-event/<int:event_id>', methods=['POST'])
+def get_event(event_id):
+    try:
+        with open(JSON_FILE, 'r') as file:
+            events = json.load(file)
+
+        event = next((event for event in events if event['id'] == event_id), None)
+        
+        if event is None:
+            return jsonify({"error": "Event not found"}), 404
+        
+        event_data = {
+            "name": event["name"],
+            "date": event["date"],
+            "path": event.get("path", ""),
+            "isLink": event["isLink"],
+            "code": ""
+        }
+
+        if event["isLink"]:
+            html_path = os.path.join(EVENTS_FOLDER, event["html"])
+            if os.path.exists(html_path):
+                with open(html_path, 'r', encoding='utf-8') as file:
+                    event_data["code"] = file.read()
+            else:
+                return jsonify({"error": "HTML file not found"}), 404
+
+        return jsonify(event_data)
+    
+    except json.JSONDecodeError:
+        return jsonify({"error": "Error decoding JSON"}), 500
+    except Exception as e:
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
 
 @app.route('/api/get-event/<year>/<path:path>', methods=['POST'])
 def get_html(year, path):

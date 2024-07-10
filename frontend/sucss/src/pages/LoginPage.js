@@ -41,7 +41,7 @@ const LoginPage = () => {
             <form onSubmit={handleSubmit} className='flex flex-col justify-center space-y-8 sm:px-32'>
                 <div>
                     <input
-                        className='w-full p-4 mb-4 text-xl bg-black border rounded-xl border-border-color focus:border-sucss-purple focus:outline-none'
+                        className='w-full p-4 mb-4 text-xl bg-black border rounded-xl border-border-color focus:border-sucss-purple focus:outline-none focus:ring-sucss-purple'
                         type="text"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
@@ -50,7 +50,7 @@ const LoginPage = () => {
                 </div>
                 <div>
                     <input
-                        className='w-full p-4 mb-4 text-xl bg-black border rounded-xl border-border-color focus:border-sucss-purple focus:outline-none'
+                        className='w-full p-4 mb-4 text-xl bg-black border rounded-xl border-border-color focus:border-sucss-purple focus:outline-none focus:ring-sucss-purple'
                         type="password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
