@@ -100,14 +100,14 @@ def edit_event():
         if is_link and any(e for e in events if e['year'] == year and e.get('path') == path and e['id'] != id):
             return jsonify({'error': 'Event with the same year and path already exists'}), 409
         
+        # if the old event was a link, delete the old html file
+        if event['isLink']:
+            os.remove(os.path.join(EVENTS_FOLDER, event['html']))
+        
         # if edit is a link then write a new html file
         if is_link:
             html = f"{year}-{path}.html"
             html_path = os.path.join(EVENTS_FOLDER, html)
-            
-            # if the old event was a link, delete the old html file
-            if event['isLink']:
-                os.remove(os.path.join(EVENTS_FOLDER, event['html']))
             
             with open(html_path, 'w') as file:
                 file.write(code)  
