@@ -84,17 +84,16 @@ function EditPage() {
                 setDate(data.date);
                 setPath(data.path);
                 setIsLink(data.isLink);
-                setCode(data.code);
-            })
-            .then(() => {
-                if (!isLink) {
+                if (data.isLink) {
+                    setCode(data.code);
+                } else {
                     setCode(template);
                 }
             })
             .catch((error) => {
                 console.error('Fetch event failed', error);
             });
-    }, [event_id, isLink])
+    }, [event_id])
 
     const handleEdit = (e) => {
         e.preventDefault();
