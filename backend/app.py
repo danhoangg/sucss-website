@@ -12,7 +12,6 @@ DOCS_FOLDER = 'html/docs'
 JSON_FILE = 'events.json'
 
 app = Flask(__name__, static_folder='../frontend/sucss/build', static_url_path='/')
-CORS(app)
 
 app.config['SECRET_KEY'] = os.getenv('FLASK_SECRET_KEY')
 app.config['JWT_SECRET_KEY'] = os.getenv('JWT_SECRET_KEY')
