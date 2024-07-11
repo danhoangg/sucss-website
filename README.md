@@ -17,7 +17,7 @@ git clone https://github.com/danhoangg/sucss-website.git
 cd frontend/sucss
 npm install
 cd ../../backend
-pip install flask, flask-cors, waitress, flask_jwt_extended, dotenv
+pip install -r requirements.txt
 ```
 ### Development
 Start the flask server (run app with debug=True with flask)
