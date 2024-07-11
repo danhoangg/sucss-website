@@ -1,5 +1,4 @@
 # sucss.org
-WIP website for SUCSS\
 Aims:
 - Make events dynamic
 - Update events without requiring redeployment
@@ -44,6 +43,15 @@ python app.py
 ```
 
 ## ✏️ Adding, modifying and deleting events
+
+### User interface
+We have a new and improved /admin route 😮\
+Login with the username and password to get a table of all the events
+![image](https://github.com/danhoangg/sucss-website/assets/107479212/7a13fd0d-474a-4339-ab11-7a36627c1e0f)
+Edit and create events
+![image](https://github.com/danhoangg/sucss-website/assets/107479212/f7f43a9c-4df6-4b8a-bbfe-2d53b43dc982)
+
+### Behind the scenes
 **Liable to change**\
 Stored in json file in `backend/events.json`\
 Currently the objects inside are stored in this format:
@@ -169,8 +177,7 @@ frontend/sucss/
 ```
 
 ## 🗒️ TODO list
-In order of priority:
-1. Make adding, removing and editing events more user friendly
+🎉🎉🎉🎉 NOTHING 🎉🎉🎉🎉
 
 ## 😎 Completed
 - Home page
@@ -180,3 +187,4 @@ In order of priority:
 - About page
 - Docs page
 - Scraped all the events from the other website onto this one
+- Make adding, removing and editing events more user friendly
