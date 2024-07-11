@@ -42,6 +42,12 @@ cd backend
 python app.py
 ```
 
+**Remember:** 4 secrets used by the flask app is stored in the environment variables, so don't forget to set them:
+- SECRET_KEY
+- JWT_SECRET_KEY
+- LOGIN_USERNAME
+- LOGIN_PASSWORD
+
 ## ✏️ Adding, modifying and deleting events
 
 ### User interface
