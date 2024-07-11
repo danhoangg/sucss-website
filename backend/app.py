@@ -175,7 +175,7 @@ def edit_event():
     is_link = data.get('isLink')
     code = data.get('code')
     
-    if not id or not name or not date or is_link is None:
+    if id is None or not name or not date or is_link is None:
         return jsonify({'error': 'Missing required fields'}), 400
     
     if is_link and (not code or not path):
