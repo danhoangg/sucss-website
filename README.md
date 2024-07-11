@@ -144,6 +144,7 @@ backend/
 │       ├── docs1.html
 │       └── docs2.html
 ├── app.py
+├── requirements.txt
 └── events.json
 
 frontend/sucss/
