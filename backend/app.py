@@ -10,6 +10,7 @@ load_dotenv()
 EVENTS_FOLDER = 'html/events'
 DOCS_FOLDER = 'html/docs'
 JSON_FILE = 'events.json'
+PORT = 8080
 
 app = Flask(__name__, static_folder='../frontend/sucss/build', static_url_path='/')
 
@@ -328,4 +329,5 @@ def get_docs(docs):
 if __name__ == '__main__':
     #app.run(debug=True)
     from waitress import serve
-    serve(app, host="0.0.0.0", port=8080)
+    print(f'Starting server on port {PORT}')
+    serve(app, host="0.0.0.0", port=PORT)
