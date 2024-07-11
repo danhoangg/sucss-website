@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
+
+import { FaArrowLeft } from 'react-icons/fa';
 
 import Editor from 'react-simple-code-editor';
 import { highlight, languages } from 'prismjs/components/prism-core';
@@ -11,22 +13,57 @@ import '../custom-styles.css';
 
 import Copyright from '../components/Copyright';
 
+const template = `<main>
+ <section>
+  <h1>
+   Title
+  </h1>
+  <p>
+   <strong>
+    Date
+   </strong>
+   : ?
+  </p>
+  <p>
+   <strong>
+    Difficulty
+   </strong>
+   : ?
+  </p>
+  <p>
+   <strong>
+    Delivered By
+   </strong>
+   : ?
+  </p>
+  <h2>
+   Overview
+  </h2>
+  <p>
+    Description
+  </p>
+ </section>
+</main>
+`;
+
 function EditPage() {
     const [name, setName] = useState('');
     const [date, setDate] = useState('');
     const [path, setPath] = useState('');
     const [isLink, setIsLink] = useState(false);
     const [disabledButton, setDisabledButton] = useState(true);
-    const [code, setCode] = useState('');
+    const [code, setCode] = useState(template);
     const { event_id } = useParams();
 
     const [showError, setShowError] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [success, setSuccess] = useState(false);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
-        if (name && date && path) {
-            if (isLink && !code) {
+        if (name && date) {
+            if (isLink && (!code || !path)) {
                 setDisabledButton(true);
             } else {
                 setDisabledButton(false);
@@ -37,6 +74,9 @@ function EditPage() {
     }, [name, date, path, isLink, code])
 
     useEffect(() => {
+        if (event_id === 'new') {
+            return;
+        }
         fetch(`/api/get-event/${event_id}`, { method: 'POST' })
             .then((response) => response.json())
             .then((data) => {
@@ -46,12 +86,17 @@ function EditPage() {
                 setIsLink(data.isLink);
                 setCode(data.code);
             })
+            .then(() => {
+                if (!isLink) {
+                    setCode(template);
+                }
+            })
             .catch((error) => {
                 console.error('Fetch event failed', error);
             });
-    }, [])
+    }, [event_id, isLink])
 
-    const handleSubmit = (e) => {
+    const handleEdit = (e) => {
         e.preventDefault();
 
         const token = localStorage.getItem('token');
@@ -95,10 +140,48 @@ function EditPage() {
             });
     }
 
+    const handleNew = (e) => {
+        e.preventDefault();
+
+        const token = localStorage.getItem('token');
+        fetch(`/api/add-event`, {
+            method: 'POST',
+            headers: {
+                Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                id: event_id,
+                name: name,
+                date: date,
+                path: path,
+                isLink: isLink,
+                code: code
+            })
+        })
+        .then((res) => {
+            if (res.status !== 201) {
+                setSuccess(false);
+                res.json().then(data => setErrorMessage(data.error));
+                setShowError(true);
+                setTimeout(() => {
+                    setShowError(false);
+                }, 3000);
+            } else {
+                navigate('/admin');
+            }
+        })
+    }
+
     return (
-        <div className='min-h-screen p-12 text-white bg-black'>
+        <div className='min-h-screen p-12 py-8 text-white bg-black'>
+            <div className="flex items-center mx-4 mb-4 space-x-2 text-sucss-purple hover:text-blue-800">
+                <FaArrowLeft />
+                <Link to="/admin" className="text-lg">Go back to admin</Link>
+            </div>
+
             <div className='grid grid-cols-2 space-x-4'>
-                <form className='mx-4 space-y-8' onSubmit={handleSubmit}>
+                <form className='mx-4 space-y-8' onSubmit={event_id === "new" ? handleNew : handleEdit}>
                     <div className='flex items-center justify-between'>
                         <div className='w-3/4'>
                             <input
@@ -126,6 +209,7 @@ function EditPage() {
                                 onValueChange={(code) => setCode(code)}
                                 highlight={(code) => highlight(code, languages.markup, 'markup')}
                                 padding={10}
+                                placeholder='Enter HTML here...'
                                 style={{
                                     fontFamily: '"Fira code", "Fira Mono", monospace',
                                     fontSize: 14,
@@ -164,14 +248,16 @@ function EditPage() {
                     </button>
                 </form>
                 <div className='px-4 custom-section'>
-                    <div dangerouslySetInnerHTML={{ __html: code }}>
+                    {isLink && (
+                        <div dangerouslySetInnerHTML={{ __html: code }}>
 
-                    </div>
+                        </div>
+                    )}
                 </div>
             </div>
 
             <div className={`fixed top-20 right-4 max-w-xs p-4 text-xl ${success ? 'bg-green-500' : 'bg-red-600'} text-white rounded-lg shadow-lg transition-transform transform ${showError ? '-translate-x-0' : 'translate-x-[150%]'}`}>
-                {errorMessage ? errorMessage : 'Edit Failed'}
+                {errorMessage ? errorMessage : 'Error Occurred'}
             </div>
 
             <Copyright />

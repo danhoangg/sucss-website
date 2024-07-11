@@ -64,6 +64,105 @@ def protected():
     return jsonify(logged_in_as=current_user), 200
 
 
+@app.route('/api/delete-event', methods=['POST'])
+@jwt_required()
+def delete_event():
+    data = request.get_json()
+    id = int(data.get('id'))
+    
+    try:
+        with open(JSON_FILE, 'r') as file:
+            events = json.load(file)
+        
+        event = next((e for e in events if e['id'] == id), None)
+        
+        if event is None:
+            return jsonify({"error": "Event not found"}), 404
+        
+        if event['isLink']:
+            html_path = os.path.join(EVENTS_FOLDER, event['html'])
+            if os.path.exists(html_path):
+                os.remove(html_path)
+        
+        events = [e for e in events if e['id'] != id]
+        
+        with open(JSON_FILE, 'w') as file:
+            json.dump(events, file, indent=4)
+        
+        return jsonify({'success': 'Event deleted successfully'}), 200
+        
+    except json.JSONDecodeError:
+        return jsonify({"error": "Error decoding JSON"}), 500
+    except Exception as e:
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
+@app.route('/api/add-event', methods=['POST'])
+@jwt_required()
+def add_event():
+    data = request.get_json()
+    
+    name = data.get('name')
+    date = data.get('date')
+    path = data.get('path')
+    is_link = data.get('isLink')
+    code = data.get('code')
+    
+    if not name or not date or is_link is None:
+        return jsonify({'error': 'Missing required fields'}), 400
+    
+    if is_link and (not code or not path):
+        return jsonify({'error': 'Missing required fields'}), 400
+    
+    try:
+        date = datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%Y-%m-%d')
+        year = date_to_academic_year(date)
+    except ValueError:
+        return jsonify({'error': 'Invalid date format'}), 400
+    
+    try:
+        with open(JSON_FILE, 'r') as file:
+            events = json.load(file)
+        
+        # Check if event's year+path is unique
+        if is_link and any(e for e in events if e['year'] == year and e.get('path') == path):
+            return jsonify({'error': 'Event with the same year and path already exists'}), 409
+        
+        id = max([event['id'] for event in events], default=0) + 1
+        
+        if is_link:
+            html = f"{year}-{path}.html"
+            html_path = os.path.join(EVENTS_FOLDER, html)
+            
+            with open(html_path, 'w') as file:
+                file.write(code)
+
+            events.append({
+                'id': len(events),
+                'name': name,
+                'isLink': is_link,
+                'date': date,
+                'year': year,
+                'path': path,
+                'html': html
+            })
+        else:
+            events.append({
+                'id': len(events),
+                'name': name,
+                'isLink': is_link,
+                'date': date,
+                'year': year
+            })
+        
+        with open(JSON_FILE, 'w') as file:
+            json.dump(events, file, indent=4)   
+            
+        return jsonify({'success': 'Event added successfully'}), 201
+    except json.JSONDecodeError:
+        return jsonify({"error": "Error decoding JSON"}), 500
+    except Exception as e:
+        return jsonify({"error": f"An error occurred: {str(e)}"}), 500
+
 @app.route('/api/edit-event', methods=['POST'])
 @jwt_required()
 def edit_event():
@@ -76,13 +175,14 @@ def edit_event():
     is_link = data.get('isLink')
     code = data.get('code')
     
-    if not id or not name or not date or not is_link:
+    if not id or not name or not date or is_link is None:
         return jsonify({'error': 'Missing required fields'}), 400
     
     if is_link and (not code or not path):
             return jsonify({'error': 'Missing required fields'}), 400
 
     try:
+        date = datetime.datetime.strptime(date, '%Y-%m-%d').strftime('%Y-%m-%d')
         year = date_to_academic_year(date)
     except ValueError:
         return jsonify({'error': 'Invalid date format'}), 400

@@ -26,7 +26,7 @@ const Table = ({ data, columns, rowsPerPage, search, setSearch }) => {
     };
 
     const handleCreateNew = () => {
-
+        navigate('/admin/new');
     }
 
     const handleLogout = () => {
